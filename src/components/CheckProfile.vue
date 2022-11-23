@@ -15,14 +15,76 @@
       </div>
     </div>
 
+    <!-- Content conatiner -->
+    <div class="ContentBox">
+      <div class="PlatformNameCont">
+        <button @click="platform = 'CodeChef'">
+          <div
+            class="card text-center  colorWhite"
+            style="width: 10rem"
+          >
+            <div class="card-body">
+              <h5 class="card-title">CodeChef</h5>
+              <!-- <p class="card-text">With supporting</p> -->
+            </div>
+          </div>
+        </button>
+
+        &nbsp; &nbsp; &nbsp;
+        <button @click="platform = 'LeetCode'">
+          <div
+            class="card text-center  colorWhite"
+            style="width: 10rem"
+          >
+            <div class="card-body">
+              <h5 class="card-title">Leetcode</h5>
+            </div>
+          </div>
+        </button>
+  &nbsp; &nbsp; &nbsp;
+        <button @click="platform = 'CodeForces'">
+          <div
+            class="card text-center colorWhite"
+            style="width: 10rem"
+          >
+            <div class="card-body">
+              <h5 class="card-title">Codeforces</h5>
+            </div>
+          </div>
+        </button>
+
+   
+        
+
+      
+      </div>
+
+      <keep-alive>
+        <component :is="platform" />
+      </keep-alive>
+    </div>
+
 
   </div>
 </template>
 
 
 <script>
+import CodeChef from '../components/platform/CodeChef.vue'
+import CodeForces from '../components/platform/CodeForces.vue'
+import LeetCode from '../components/platform/LeetCode.vue'
 export default {
   name: "CheckProfile",
+  components:{
+    CodeChef,
+    LeetCode,
+    CodeForces,
+  },
+      data(){
+        return{
+            platform:'CodeChef',
+        }
+    }
 };
 </script>
 
@@ -33,6 +95,7 @@ export default {
   display: flex;
   justify-content: center;
   align-content: center;
+  margin-bottom: 20px;
 }
 
 .topimageBox {
@@ -64,4 +127,19 @@ export default {
   letter-spacing: 1px;
   margin-bottom: 20px;
 }
+/* .ContentBox {
+  border: 2px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+button{
+  border: 0px;
+  background-color: white;
+}
+
+button:focus{
+    background:olive;
+}
+
 </style>

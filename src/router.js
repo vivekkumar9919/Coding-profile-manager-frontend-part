@@ -55,7 +55,7 @@ export default [
     ]},
     {path:'/teacher',component:TeacherMain,children:[
         {path:'', component: TeacherHome},
-        {path:'check_profile', component: CheckProfileAll},
+        {path:'check_profileA', component: CheckProfileAll},
         {path:'makelist', component: MakeList},
         {path:'sortlist', component: SortlistProfileall},
         {path:'send', component: SendQuestion},

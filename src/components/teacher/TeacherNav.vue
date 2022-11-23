@@ -12,7 +12,7 @@
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/teacher/check_profile">Check Profile</a>
+          <a class="nav-link" href="/teacher/check_profileA">Check Profile</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/teacher/makelist">Make List</a>

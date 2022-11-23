@@ -17,10 +17,10 @@
         <li class="nav-item">
           <a class="nav-link" href="/Sortlist_Profile">Sortlist Profile</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Sign/Signup</a>
-        </li>
    
+        <span class=" loginNavelement">
+          <a class="nav-link  " href="/login">Sign/Signup</a>
+        </span>
       </ul>
     </div>
   </div>
@@ -35,3 +35,14 @@ export default {
     name:'NavBar'
 }
 </script>
+
+
+<style scoped>
+.loginNavelement{
+ position: relative;
+  float: right;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+}
+</style>

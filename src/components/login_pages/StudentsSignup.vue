@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <h1>Students Register</h1> -->
-    <div class="form">
+    <div class="form" @submit.prevent="datapost()">
       <div
         class="
           vh-70
@@ -30,6 +30,7 @@
                 type="text"
                 class="form-control border"
                 id="exampleInputName"
+                v-model="studentdata.name"
               />
             </div>
 
@@ -42,6 +43,7 @@
                 class="form-control border"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
+                v-model="studentdata.email"
               />
             </div>
 
@@ -53,6 +55,7 @@
                 type="password"
                 class="form-control border"
                 id="exampleInputPassword1"
+                v-model="studentdata.password"
               />
             </div>
 
@@ -66,12 +69,14 @@
                 id="exampleInputPassword2"
               />
             </div>
-          
+
             <div class="mb-3">
-              <label for="exampleInputGender" class="form-label"
-                >Gender</label
+              <label for="exampleInputGender" class="form-label">Gender</label>
+              <select
+                id="exampleInputGender"
+                class="border"
+                v-model="studentdata.gender"
               >
-              <select id="exampleInputGender" name="gender" class="border" >
                 <option value="M">Male</option>
                 <option value="F">Female</option>
                 <option value="N">Can't say</option>
@@ -92,24 +97,47 @@
         </div>
       </div>
     </div>
-
-
-
-    
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "StudentsRegister",
+  data() {
+    return {
+      studentdata: {},
+    };
+  },
+  methods: {
+    async datapost() {
+      console.log(this.studentdata);
+      const UserRegisterData = await JSON.stringify(this.studentdata);
+      console.log(`json data ${UserRegisterData}`);
+     let customConfig = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      await axios.post(`http://localhost:3000/api/register`, UserRegisterData,customConfig)
+        .then((response) => {
+          console.log(response.data);
+         
+        })
+        .catch((err) => {
+          console.log(`nhi hua bhai ye rha errr ${err}`);
+        });
+    },
+  },
 };
 </script>
 
 
 <style scoped>
-#exampleInputGender{
-    margin-left: 20px;
-    padding: 5px;
-    border-radius: 4px;
+#exampleInputGender {
+  margin-left: 20px;
+  padding: 5px;
+  border-radius: 4px;
 }
 </style>
