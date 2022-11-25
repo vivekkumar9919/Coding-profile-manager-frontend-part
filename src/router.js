@@ -46,19 +46,19 @@ export default [
 
     ]},
     {path:'/student',component:StudentsMain,children:[
-        {path:'', component: StudentHome},
-        {path:'profile', component: StudentsProfie},
-        {path:'addfriend', component: AddFriend},
-        {path:'qustion_solved', component: QuestionSolved},
-        {path:'target', component: MakeTarget},
+        {path:'', component: StudentHome,meta:{studentgurd:true}},
+        {path:'profile', component: StudentsProfie ,meta:{studentgurd:true}},
+        {path:'addfriend', component: AddFriend ,meta:{studentgurd:true}},
+        {path:'qustion_solved', component: QuestionSolved ,meta:{studentgurd:true}},
+        {path:'target', component: MakeTarget ,meta:{studentgurd:true}},
 
     ]},
     {path:'/teacher',component:TeacherMain,children:[
-        {path:'', component: TeacherHome},
-        {path:'check_profileA', component: CheckProfileAll},
-        {path:'makelist', component: MakeList},
-        {path:'sortlist', component: SortlistProfileall},
-        {path:'send', component: SendQuestion},
+        {path:'', component: TeacherHome, meta:{teachergurd:true}},
+        {path:'check_profileA', component: CheckProfileAll , meta:{teachergurd:true}},
+        {path:'makelist', component: MakeList , meta:{teachergurd:true}},
+        {path:'sortlist', component: SortlistProfileall , meta:{teachergurd:true}},
+        {path:'send', component: SendQuestion , meta:{teachergurd:true}},
 
     ]},
 

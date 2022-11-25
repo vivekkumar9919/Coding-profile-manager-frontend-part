@@ -20,11 +20,11 @@
         <li class="nav-item">
           <a class="nav-link" href="/student/qustion_solved">Question Solved</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="/student/target">Target</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Logout</a>
+        </li> -->
+        <li class="nav-item" style="cursor:pointer;">
+          <a class="nav-link" @click="logoutfun">Logout</a>
         </li>
    
       </ul>
@@ -38,6 +38,13 @@
 
 <script>
 export default {
-    name:'StudentNav'
+    name:'StudentNav',
+    methods:{
+      logoutfun(){
+        localStorage.removeItem('student_flag')
+        localStorage.removeItem('email')
+        this.$router.push('/')
+      }
+    }
 }
 </script>

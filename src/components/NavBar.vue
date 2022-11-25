@@ -9,17 +9,22 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <!-- <a class="nav-link active" aria-current="page" href="/">Home</a> -->
+          <routuer-link to="/" class="nav-link active" aria-current="page" >Home</routuer-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/Check_Profile">Check Profile</a>
+          <!-- <a class="nav-link" href="/Check_Profile">Check Profile</a> -->
+          <router-link to="/Check_Profile" class="nav-link">Check Profile</router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/Sortlist_Profile">Sortlist Profile</a>
+          <!-- <a class="nav-link" href="/Sortlist_Profile">Sortlist Profile</a> -->
+            <router-link to="/Sortlist_Profile" class="nav-link">Sortlist Profile</router-link>
         </li>
    
         <span class=" loginNavelement">
-          <a class="nav-link  " href="/login">Sign/Signup</a>
+          <!-- <a class="nav-link  " href="/login">Sign/Signup</a> -->
+            <router-link to="/student" class="nav-link" v-if="useremail">Profile</router-link>
+            <router-link to="/login" class="nav-link" v-else>Sign/Signup</router-link>
         </span>
       </ul>
     </div>
@@ -32,7 +37,15 @@
 
 <script>
 export default {
-    name:'NavBar'
+    name:'NavBar',
+    data(){
+      return{
+        useremail:"",
+      }
+    }
+    ,mounted(){
+      this.useremail=localStorage.getItem('email');
+    }
 }
 </script>
 
@@ -41,7 +54,7 @@ export default {
 .loginNavelement{
  position: relative;
   float: right;
-  background-color: red;
+  background-color: rgb(238, 105, 105);
   color: white;
   border-radius: 5px;
 }

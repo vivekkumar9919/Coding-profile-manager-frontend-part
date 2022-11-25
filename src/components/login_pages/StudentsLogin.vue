@@ -2,7 +2,15 @@
   <div>
     <!-- <h1>students Login</h1> -->
     <div class="form">
-      <div class="vh-70 d-flex justify-content-center align-items-center outerContainer">
+      <div
+        class="
+          vh-70
+          d-flex
+          justify-content-center
+          align-items-center
+          outerContainer
+        "
+      >
         <div
           class="
             col-md-4
@@ -15,16 +23,17 @@
           "
         >
           <h2 class="text-center mb-4 text-primary">Login Form Students</h2>
-          <form>
+          <form @submit.prevent="getlogin()">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label"
                 >Email address</label
               >
               <input
                 type="email"
-                class="form-control border "
+                class="form-control border"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
+                v-model="logindetails.email"
               />
             </div>
             <div class="mb-3">
@@ -35,13 +44,14 @@
                 type="password"
                 class="form-control border"
                 id="exampleInputPassword1"
+                v-model="logindetails.password"
               />
             </div>
-            <p class="small">
+            <!-- <p class="small">
               <a class="text-primary" href="forget-password.html"
                 >Forgot password?</a
               >
-            </p>
+            </p> -->
             <div class="d-grid">
               <button class="btn btn-primary" type="submit">Login</button>
             </div>
@@ -49,23 +59,58 @@
           <div class="mt-3">
             <p class="mb-0 text-center">
               Don't have an account?
-              <a href="/login/studentsinup" class="text-primary fw-bold">Sign Up</a>
+              <a href="/login/studentsinup" class="text-primary fw-bold"
+                >Sign Up</a
+              >
             </p>
           </div>
         </div>
       </div>
     </div>
-<!-- <router-view></router-view> -->
-
-
-
+    <!-- <router-view></router-view> -->
   </div>
 </template>
 
 
 <script>
+import axios from "axios";
 export default {
   name: "StudentsLogin",
+  data() {
+    return {
+      logindetails: {},
+    };
+  },
+  methods: {
+    async getlogin() {
+      console.log(this.logindetails);
+      // const UserloginData = await JSON.stringify(this.logindetails);
+      // console.log(`json data ${UserRegisterData}`);
+      let customConfig = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      await axios
+        .get(
+          `http://localhost:3000/api/login/` + this.logindetails.email,
+          customConfig
+        )
+        .then((res) => {
+          if (res.status == 200) {
+            console.log("login successufully");
+            localStorage.setItem("student_flag", true);
+            localStorage.setItem("email",this.logindetails.email)
+            this.$router.push("/student/profile");
+          } else {
+            console.log(" email is wrong");
+          }
+        }).catch((err)=>{
+          console.log(err);
+        })
+    },
+  },
 };
 </script>
 
