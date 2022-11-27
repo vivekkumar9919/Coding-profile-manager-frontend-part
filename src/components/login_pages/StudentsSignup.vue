@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <h1>Students Register</h1> -->
-    <div class="form" @submit.prevent="datapost()">
+    <div>
       <div
         class="
           vh-70
@@ -23,7 +23,7 @@
           "
         >
           <h2 class="text-center mb-4 text-primary">SignUp Form Students</h2>
-          <form>
+          <form class="form" @submit.prevent="datapost()">
             <div class="mb-2">
               <label for="exampleInputName" class="form-label">Name</label>
               <input
@@ -114,20 +114,44 @@ export default {
       console.log(this.studentdata);
       const UserRegisterData = await JSON.stringify(this.studentdata);
       console.log(`json data ${UserRegisterData}`);
-     let customConfig = {
+      let customConfig = {
         headers: {
           "Content-Type": "application/json",
         },
       };
-
-      await axios.post(`http://localhost:3000/api/register`, UserRegisterData,customConfig)
+  
+  // posting data to logindata1 (login data for student)
+      await axios
+        .post(
+          `http://localhost:3000/api/register`,
+          UserRegisterData,
+          customConfig
+        )
         .then((response) => {
           console.log(response.data);
-         
         })
         .catch((err) => {
           console.log(`nhi hua bhai ye rha errr ${err}`);
         });
+          
+          // posting data for the student profile database
+        await axios
+        .post(
+          `http://localhost:3000/api/student/profile/make_profile`,
+          {
+            name: this.studentdata.name,
+            email:this.studentdata.email,
+            gender:this.studentdata.gender,
+          },
+          customConfig
+        )
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((err) => {
+          console.log(`nhi hua bhai ye rha errr ${err}`);
+        });
+
     },
   },
 };

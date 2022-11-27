@@ -42,7 +42,7 @@ export default {
     methods:{
       logoutfun(){
         localStorage.removeItem('student_flag')
-        localStorage.removeItem('email')
+        localStorage.removeItem('email1')
         this.$router.push('/')
       }
     }

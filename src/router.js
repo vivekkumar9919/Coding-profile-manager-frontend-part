@@ -18,7 +18,7 @@ import AddFriend from './components/students/AddFriend'
 import MakeTarget from './components/students/MakeTarget.vue'
 import QuestionSolved from './components/students/QuestionSolved.vue'
 import StudentsProfie from './components/students/StudentsProfie.vue'
-// import QuestionSolved from './components/students/QuestionSolved.vue'
+
 
 
 // teacher

@@ -11,7 +11,7 @@ import StudentNav from './StudentNav.vue'
 import FooterComp from '../FooterComp.vue'
 
 export default {
-    name:'StudentMain',
+    name:'StudentsMain',
     components:{ StudentNav,FooterComp}
 }
 </script>

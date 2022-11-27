@@ -10,7 +10,7 @@
 import NavBar from './NavBar.vue'
 import FooterComp from './FooterComp.vue'
 export default {
-  components: { NavBar ,FooterComp},
     name:'MainPage',
+  components: { NavBar ,FooterComp},
 }
 </script>

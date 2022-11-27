@@ -29,7 +29,7 @@ router.beforeEach((to,from,next)=>{
   } 
 //admin authentication 
 if(to.meta.teachergurd){ 
-  //  isadmin = localStorage.getItem("admin_status"); 
+  teacherflag = localStorage.getItem("teacher_flag"); 
  
   if(teacherflag){ 
     next(); 

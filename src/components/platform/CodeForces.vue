@@ -70,12 +70,6 @@ export default {
                 console.log(this.username);
                 this.posts=response.data
                 console.log(this.posts);
-                // this.details1=response.data[0];
-                // this.details2=response.data[1];
-                // console.log(`details1 :- ${this.details1}`)
-                // console.log(`details2 :- ${this.details2}`)
-                
-                
             })
             .catch((error)=>{
             console.log(error);
@@ -109,9 +103,9 @@ export default {
 
     height: 200px;
     width: 600px;
-    background: #2C3E50;
-    background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50);
-    background: linear-gradient(to right, #4CA1AF, #2C3E50);
+  background: #bdc3c7;
+  background: -webkit-linear-gradient(to right, #536577, #bdc3c7);
+  background: linear-gradient(to right, #536577, #bdc3c7);
 }
 .resultCont{
     margin-top: 50px;

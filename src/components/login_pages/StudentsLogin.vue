@@ -53,7 +53,7 @@
               >
             </p> -->
             <div class="d-grid">
-              <button class="btn btn-primary" type="submit">Login</button>
+              <button class="btn btn-primary" >Login</button>
             </div>
           </form>
           <div class="mt-3">
@@ -100,14 +100,20 @@ export default {
         .then((res) => {
           if (res.status == 200) {
             console.log("login successufully");
+                 if(localStorage.getItem('email2')){
+              localStorage.setItem('email2',"");
             localStorage.setItem("student_flag", true);
-            localStorage.setItem("email",this.logindetails.email)
+            localStorage.setItem("teacher_flag",false)
+            }
+            localStorage.setItem("student_flag", true);
+            localStorage.setItem("email1",this.logindetails.email)
             this.$router.push("/student/profile");
-          } else {
+          } else if(res.status==404){
             console.log(" email is wrong");
           }
         }).catch((err)=>{
           console.log(err);
+           alert("Email does not exit");
         })
     },
   },

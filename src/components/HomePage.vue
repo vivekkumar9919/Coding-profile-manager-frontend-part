@@ -4,6 +4,7 @@
 <template>
   <div>
     <!-- topimage conatiner -->
+    <section>
     <div class="topimgContainer">
       <div class="topimageBox">
         <div id="topheading">
@@ -16,6 +17,7 @@
         </div>
       </div>
     </div>
+    </section>
 
     <!-- Contest details constiner -->
     <div class="contestheading">
@@ -29,6 +31,9 @@
       </vue-typed-js>
     </div>
 
+<!--  upcoming Contest -->
+<section>
+<div id="contest"></div>
     <div class="contestcontainer">
       <div class="contestbox">
         <ul id="listofContest">
@@ -68,8 +73,86 @@
         </ul>
       </div>
     </div>
+  
+</section>
+
+
+
+    <!-- services page -->
+    <div id="services"></div>
+    <section>
+      <div class="servicesCont">
+        <div id="Servicesheading">Our Services
+          <center><hr style="width:30%;"></center>
+        </div>
+         <div class="StudentService">
+          <div class="studImgbox" id="studimgID1"> <img src="../assets/studentprofile.gif" alt="img"></div>
+          <div class="studTextBOx" id="studImgID1">
+            <div class="card" style="width: 25rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Services for Student</h5>
+                  <ul>
+                    <li><p class="card-text"><strong><i>Make Profile:- </i></strong> Make Stunning Profile using real time Profile data form codechef, codeforces and leetcode</p></li>
+                    <li><p class="card-text"><strong><i>Add Friends:- </i></strong>Add many friends from different coding platoform and observe there profile </p></li>
+                    <li><p class="card-text"><strong><i>Add Question:- </i></strong>Add all question solve on different coding platofirm with a lots of information</p></li>
+
+                  </ul>
+                 </div>
+              </div>
+          </div>
+         </div>
+         <div class="teacherservices">
+          <div class="teachTextBOx" id="teachImgID1">
+            <div class="card" style="width: 25rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Services for Teacher</h5>
+                  <ul>
+                    <li><p class="card-text"><strong><i>Check Profile:- </i></strong> Teacher can check the profile of codechef,codeforces and leetcode user </p></li>
+                    <li><p class="card-text"><strong><i>Add Student:- </i></strong>Add many friends from different coding platoform and observe there profile </p></li>
+                    <li><p class="card-text"><strong><i>Sortlist Student:- </i></strong>Add all question solve on different coding platofirm with a lots of information</p></li>
+
+                  </ul>
+                 </div>
+              </div>
+          </div>
+            <div class="teachImgbox" id="teachimgID1"> <img src="../assets/teacherprofile.gif" alt="img"></div>
+         </div>
+      </div>
+    </section>
+
+    <!-- feedback form -->
+    <section>
+      <div id="feedbackheading">Feedback
+          <center><hr style="width:30%;"></center>
+        </div>
+      <div class="feedbackCont">
+        <div class="feedbackimg"><img src="../assets/feedbackimg.png" alt="" id="feedimg"></div>
+        <div class="formCont">
+          <form  @submit.prevent="feedbackfunc()" id=formID>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+              <label for="floatingInput">Email address</label>
+            </div>
+           <div class="form-floating  mb-3">
+             <input type="number" class="form-control" id="rating" placeholder="Rating (1-5)" min="1" max="5" required>
+             <label for="rating">Rating(1-5)</label>
+           </div>
+           <div class="form-floating  mb-3">
+               <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 110px" required></textarea>
+               <label for="floatingTextarea">Comments</label>
+            </div>
+
+            <div class="feedbackbtn">
+              <button class="btn bg-primary">Send</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </section>
 
     <!-- Supported platform -->
+    <section>
     <div class="supportedplatformCont">
          <div id="supportText"> We support <span ><div id="greattext">Great</div></span>Coding Platform </div>
          <center> <hr style="width:40%; height:2px; color:red;"></center>
@@ -85,6 +168,8 @@
             </div>
          </div>
     </div>
+</section>
+
   </div>
 </template>
 
@@ -130,7 +215,13 @@ export default {
       var dt = new Date(milliseconds);
       return dt;
     },
+     feedbackfunc(){
+    console.log("feedback form submitted");
+    document.getElementById('formID').reset();
   },
+  },
+ 
+
 };
 </script>
 
@@ -249,6 +340,69 @@ export default {
  transform: rotate(20deg);
  /* border: 2px solid black; */
 }
+
+/* services style */
+#Servicesheading ,#feedbackheading{
+  font-size: 48px;
+   text-align: center;
+   margin-top: 40px;
+}
+.StudentService{
+  /* border:2px solid red; */
+}
+.teacherservices{
+  margin-top: 100px;
+  /* border:2px solid black; */
+  display: flex;
+  justify-content:space-evenly;
+  align-items: center;
+}
+.StudentService{
+  display: flex;
+  justify-content:space-evenly;
+  align-items: center;
+}
+.studImgbox ,.teachImgbox{
+  /* border: 2px solid green; */
+  height: 360px;
+  width: 500px;
+  margin: 10px;
+}
+/* .studTextBOx ,.teachTextBOx{
+  border: 2px solid yellow;
+  height: 280px;
+  width: 450px;
+} */
+.feedbackCont{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+   /* border: 2px solid black; */
+   margin-top: 40px;
+   background: #abbaab; 
+background: -webkit-linear-gradient(to right, #ffffff, #abbaab);  
+background: linear-gradient(to right, #ffffff, #abbaab); 
+
+}
+.feedbackimg{
+    margin: 20px;
+  height: 550px;
+  width: 490px;
+  /* border: 2px solid black; */
+}
+#feedimg{
+
+  height: 550px;
+  width: 490px;
+}
+.formCont{
+  height: 400px;
+  width: 450px;
+  border: 2px solid white;
+  padding: 20px;
+  border-radius: 5px ;
+}
+
 </style>
 
 

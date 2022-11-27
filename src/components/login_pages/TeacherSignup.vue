@@ -23,55 +23,68 @@
           "
         >
           <h2 class="text-center mb-4 text-primary">SignUp Form Teacher</h2>
-          <form>
+          <form class="form" @submit.prevent="datapost()">
             <div class="mb-2">
-              <label for="exampleInputName" class="form-label">Name</label>
+              <label for="InputName" class="form-label">Name</label>
               <input
                 type="text"
                 class="form-control border"
-                id="exampleInputName"
+                id="InputName"
+                v-model="teacherdata.name"
               />
             </div>
 
             <div class="mb-2">
-              <label for="exampleInputEmail1" class="form-label"
+              <label for="InputEmail1" class="form-label"
                 >Email address</label
               >
               <input
                 type="email"
                 class="form-control border"
-                id="exampleInputEmail1"
+                id="InputEmail1"
                 aria-describedby="emailHelp"
+                v-model="teacherdata.email"
+              />
+            </div>
+
+                <div class="mb-2">
+              <label for="InputJobID" class="form-label">Job ID</label>
+              <input
+                type="text"
+                class="form-control border"
+                id="InputJobID"
+                v-model="teacherdata.jobid"
               />
             </div>
 
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label"
+              <label for="InputPassword1" class="form-label"
                 >Password</label
               >
               <input
                 type="password"
                 class="form-control border"
-                id="exampleInputPassword1"
+                id="InputPassword1"
+                v-model="teacherdata.password"
               />
             </div>
 
             <div class="mb-3">
-              <label for="exampleInputPassword2" class="form-label"
+              <label for="InputPassword2" class="form-label"
                 >Confirm Password</label
               >
               <input
                 type="password"
                 class="form-control border"
-                id="exampleInputPassword2"
+                id="InputPassword2"
               />
             </div>
           
             <div class="mb-3">
-              <label for="exampleInputGender" class="form-label"
+              <label for="InputGender" class="form-label"
                 >Gender</label
               >
-              <select id="exampleInputGender" name="gender" class="border" >
+              <select id="InputGender" name="gender" class="border" v-model="teacherdata.gender" >
                 <option value="M">Male</option>
                 <option value="F">Female</option>
                 <option value="N">Can't say</option>
@@ -80,7 +93,7 @@
             </div>
 
             <div class="d-grid">
-              <button class="btn btn-primary" type="submit">SignUp</button>
+              <button class="btn btn-primary" >SignUp</button>
             </div>
           </form>
           <div class="mt-3">
@@ -102,14 +115,50 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name:'TeacherRegister',
+    data(){
+      return{
+        teacherdata:{},
+      }
+    },
+  methods: {
+    async datapost() {
+      console.log(this.teacherdata);
+      const UserRegisterData = await JSON.stringify(this.teacherdata);
+      console.log(`json data ${UserRegisterData}`);
+     let customConfig = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      await axios.post(`http://localhost:3000/api/teacher_login/register`, UserRegisterData,customConfig)
+        .then((response) => {
+          console.log(response.data);
+            if (response.status == 200) {
+            console.log("Signup successufully");
+            localStorage.setItem("teacher_flag", true);
+            localStorage.setItem("email2",this.teacherdata.email)
+            this.$router.push("/teacher");
+          } else {
+            console.log(" email is wrong");
+          }
+         
+        })
+        .catch((err) => {
+          console.log(`nhi hua bhai ye rha errr ${err}`);
+        });
+    },
+  },
+
 }
 </script>
 
 
 <style scoped>
-#exampleInputGender{
+#InputGender{
     margin-left: 20px;
     padding: 5px;
     border-radius: 4px;

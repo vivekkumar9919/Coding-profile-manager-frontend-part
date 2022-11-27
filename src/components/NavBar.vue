@@ -13,17 +13,18 @@
           <routuer-link to="/" class="nav-link active" aria-current="page" >Home</routuer-link>
         </li>
         <li class="nav-item">
-          <!-- <a class="nav-link" href="/Check_Profile">Check Profile</a> -->
-          <router-link to="/Check_Profile" class="nav-link">Check Profile</router-link>
+          <a class="nav-link" href="#contest">Upcoming Contest</a>
+          <!-- <router-link to="/Check_Profile" class="nav-link">Check Profile</router-link> -->
         </li>
         <li class="nav-item">
-          <!-- <a class="nav-link" href="/Sortlist_Profile">Sortlist Profile</a> -->
-            <router-link to="/Sortlist_Profile" class="nav-link">Sortlist Profile</router-link>
+          <a class="nav-link" href="#services">Services</a>
+            <!-- <router-link to="/Sortlist_Profile" class="nav-link">Sortlist Profile</router-link> -->
         </li>
    
         <span class=" loginNavelement">
           <!-- <a class="nav-link  " href="/login">Sign/Signup</a> -->
-            <router-link to="/student" class="nav-link" v-if="useremail">Profile</router-link>
+            <router-link to="/student/profile" class="nav-link" v-if="useremail1">Profile</router-link>
+            <router-link to="/teacher/check_profileA" class="nav-link" v-else-if="useremail2">Profile</router-link>
             <router-link to="/login" class="nav-link" v-else>Sign/Signup</router-link>
         </span>
       </ul>
@@ -40,11 +41,13 @@ export default {
     name:'NavBar',
     data(){
       return{
-        useremail:"",
+        useremail1:"",
+        useremail2:"",
       }
     }
     ,mounted(){
-      this.useremail=localStorage.getItem('email');
+      this.useremail1=localStorage.getItem('email1');
+      this.useremail2=localStorage.getItem('email2');
     }
 }
 </script>

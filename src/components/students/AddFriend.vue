@@ -117,7 +117,7 @@ export default {
     async addfriendfunc() {
       console.log(this.inputdata);
       const DataByUser = await JSON.stringify({
-        email: localStorage.getItem("email"),
+        email: localStorage.getItem("email1"),
         username: this.inputusername,
         platform: this.platformselect,
       });
@@ -151,7 +151,7 @@ export default {
     await axios
       .get(
         "http://localhost:3000/api/student/showing_friend/" +
-          localStorage.getItem("email")
+          localStorage.getItem("email1")
       )
       .then((response) => {
         console.log(response.data);

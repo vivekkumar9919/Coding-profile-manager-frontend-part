@@ -112,10 +112,9 @@ export default {
     /* border: 2px solid black; */
     height: 200px;
     width: 600px;
-    background: #2C3E50;
-    background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50);
-  
-    background: linear-gradient(to right, #4CA1AF, #2C3E50);
+  background: #bdc3c7;
+  background: -webkit-linear-gradient(to right, #536577, #bdc3c7);
+  background: linear-gradient(to right, #536577, #bdc3c7);
    
 
 }

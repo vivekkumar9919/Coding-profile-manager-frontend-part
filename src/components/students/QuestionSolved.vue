@@ -99,10 +99,21 @@
               <th scope="col">Topic</th>
               <th scope="col">Question link</th>
               <th scope="col">Needpratice</th>
-              <th scope="col"><button @click="deleteQues()">delete</button></th>
+              <th scope="col">Delete</th>
             </tr>
           </thead>
-          <tbody id="Questionrowadd"></tbody>
+          <tbody id="Questionrowadd">
+            <tr v-for="list in listfromserver" :key="list.id">
+                    <td class="tdclass">{{list["question_Description"]}}</td>
+                    <td class="tdclass">{{list["platform"]}}</td>
+                    <td class="tdclass">{{list["note"]}}</td>
+                    <td class="tdclass">{{list["topic"]}}</td>
+                    <td class="tdclass"> <a v-bind:href="list['question_link']" target="_blank">Link</a></td>
+                    <td class="tdclass">{{list["need_pratice"]}}</td>
+                    <td class="tdclass"><button @click="deleteQues(list['_id'])"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+                     
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
@@ -124,14 +135,17 @@ export default {
       Question_link: "",
       Needpratice: "",
       listfromserver: {},
+   
     };
   },
 
   methods: {
+
+
     async addquestionfunc() {
       console.log(this.inputdata);
       const DataByUser = await JSON.stringify({
-        email: localStorage.getItem("email"),
+        email: localStorage.getItem("email1"),
         question_Description: this.Description,
         platform: this.Platform,
         note: this.Note,
@@ -162,8 +176,25 @@ export default {
           console.log(`nhi hua bhai ye rha errr ${err}`);
         });
     },
-    deleteQues() {
-      console.log("question deleted");
+   async deleteQues(a) {
+      console.log("question deleted"+ a);
+        //   let customConfig = {
+        // headers: {
+        //   "Content-Type": "application/json",
+        // },
+      // }
+          await axios.delete(
+          `http://localhost:3000/api/student/question/delete_questions/`+a,
+          // customConfig
+        )
+        .then((response) => {
+          console.log(response.data);
+          alert("Question deleted successfully");
+          location.reload();
+        })
+        .catch((err) => {
+          console.log(`nhi hua bhai ye rha errr ${err}`);
+        });
     },
   },
 
@@ -171,7 +202,7 @@ export default {
     await axios
       .get(
         "http://localhost:3000/api/student/question/showing_question/" +
-          localStorage.getItem("email")
+          localStorage.getItem("email1")
       )
       .then((response) => {
         // console.log(response.data);
@@ -183,23 +214,23 @@ export default {
         this.errmsg = "Error in fetching data";
       });
 
-    for (let i = 0; i < this.listfromserver.length; i++) {
-      console.log("inside the loop");
-      const addques = document.getElementById("Questionrowadd");
+    // for (let i = 0; i < this.listfromserver.length; i++) {
+    //   console.log("inside the loop");
+    //   const addques = document.getElementById("Questionrowadd");
 
-      const box = document.createElement("tr");
-      box.innerHTML = `
-                <td style="word-wrap: break-word;min-width: 160px;max-width: 210px;">${this.listfromserver[i]["question_Description"]}</td>
-              <td class="tdclass">${this.listfromserver[i]["platform"]}</td>
-              <td class="tdclass">${this.listfromserver[i]["note"]}</td>
-              <td class="tdclass">${this.listfromserver[i]["topic"]}</td>
-              <td class="tdclass"> <a href="${this.listfromserver[i]["question_link"]}" target="_blank">Link</a></td>
-              <td class="tdclass">${this.listfromserver[i]["need_pratice"]}</td>
-              <td class="tdclass"> <button @click="deleteQues()"> delete </button></td>
-      `;
+    //   const box = document.createElement("tr");
+    //   box.innerHTML = `
+    //             <td style="word-wrap: break-word;min-width: 160px;max-width: 210px;">${this.listfromserver[i]["question_Description"]}</td>
+    //           <td class="tdclass">${this.listfromserver[i]["platform"]}</td>
+    //           <td class="tdclass">${this.listfromserver[i]["note"]}</td>
+    //           <td class="tdclass">${this.listfromserver[i]["topic"]}</td>
+    //           <td class="tdclass"> <a href="${this.listfromserver[i]["question_link"]}" target="_blank">Link</a></td>
+    //           <td class="tdclass">${this.listfromserver[i]["need_pratice"]}</td>
+    //           <td class="tdclass"> <a @click="this.deleteQues()">delete</a></td>
+    //   `;
       
-      addques.appendChild(box);
-    }
+    //   addques.appendChild(box);
+    // }
   },
 };
 </script>
@@ -254,6 +285,16 @@ export default {
   word-wrap: break-word;
   min-width: 160px;
   max-width: 160px;
+}
+.tdclass button {
+  border: 0px;
+}
+.fa-trash{
+  font-size: 20px;
+  color: red;
+}
+.fa-trash :hover{
+ font-size: 25px;;
 }
 
 </style>

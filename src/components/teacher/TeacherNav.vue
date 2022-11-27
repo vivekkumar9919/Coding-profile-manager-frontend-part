@@ -20,11 +20,11 @@
         <li class="nav-item">
           <a class="nav-link" href="/teacher/sortlist">Sortlist Profile</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="/teacher/send">Send Question</a>
-        </li>
+        </li> -->
         <li class="nav-item">
-          <a class="nav-link" href="/login">Logout</a>
+          <a class="nav-link" @click="logoutfun2">Logout</a>
         </li>
    
       </ul>
@@ -38,6 +38,13 @@
 
 <script>
 export default {
-    name:'TeacherNav'
+    name:'TeacherNav',
+    methods:{
+      logoutfun2(){
+        localStorage.removeItem('teacher_flag')
+        localStorage.removeItem('email2')
+        this.$router.push('/')
+      }
+    }
 }
 </script>

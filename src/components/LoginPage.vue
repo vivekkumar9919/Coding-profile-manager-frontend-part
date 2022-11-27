@@ -2,7 +2,7 @@
   <div>
     <!-- <h1 id>Login Page</h1> -->
     <div>
-       <a href="/">Home</a>
+       <a href="/"><i class="fa fa-home" aria-hidden="true"></i></a>
     </div>
     <div class="outerContainerLogin ">
       <div id="studentContainer" class="loginBox">
@@ -42,5 +42,9 @@ export default {
   padding-right: 10px;
   text-decoration: none;
   border-radius: 6px;
+}
+.fa-home{
+  font-size: 40px;
+  margin: 20px;
 }
 </style>

@@ -15,7 +15,7 @@
           "
         >
           <h2 class="text-center mb-4 text-primary">Login Form Teachers</h2>
-          <form>
+          <form @submit.prevent="getlogin2()">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label"
                 >Email address</label
@@ -25,6 +25,7 @@
                 class="form-control border "
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
+                v-model="teacherlogin.email"
               />
             </div>
             <div class="mb-3">
@@ -35,6 +36,7 @@
                 type="password"
                 class="form-control border"
                 id="exampleInputPassword1"
+                v-model="teacherlogin.password"
               />
             </div>
             <p class="small">
@@ -43,7 +45,7 @@
               >
             </p>
             <div class="d-grid">
-              <button class="btn btn-primary" type="submit">Login</button>
+              <button class="btn btn-primary">Login</button>
             </div>
           </form>
           <div class="mt-3">
@@ -61,7 +63,49 @@
 
 
 <script>
+import axios from 'axios'
 export default {
     name:'TeacherLogin',
+    data(){
+      return {
+        teacherlogin:{},
+      }
+    },
+
+     methods: {
+    async getlogin2() {
+      console.log(this.teacherlogin);
+      let customConfig = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      await axios
+        .get(
+          `http://localhost:3000/api/teacher_login/login/` + this.teacherlogin.email,
+          customConfig
+        )
+        .then((res) => {
+          if (res.status == 200) {
+            console.log("login successufully");
+            if(localStorage.getItem('email1')){
+              localStorage.setItem('email1',"");
+            localStorage.setItem("student_flag", false);
+            localStorage.setItem("teacher_flag",true)
+            }
+            localStorage.setItem("email2",this.teacherlogin.email)
+            localStorage.setItem("teacher_flag",true);
+
+            this.$router.push("/teacher/check_profileA");
+          } else {
+            console.log(" email is wrong");
+          }
+        }).catch((err)=>{
+          console.log(err);
+           alert("Email does not exit");
+        })
+    },
+  },
 }
 </script>
