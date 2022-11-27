@@ -83,7 +83,7 @@ export default {
 
       await axios
         .get(
-          `http://localhost:3000/api/teacher_login/login/` + this.teacherlogin.email,
+          `api/teacher_login/login/` + this.teacherlogin.email,
           customConfig
         )
         .then((res) => {

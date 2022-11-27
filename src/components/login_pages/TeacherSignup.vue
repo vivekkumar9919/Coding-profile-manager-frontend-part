@@ -134,7 +134,7 @@ export default {
         },
       };
 
-      await axios.post(`http://localhost:3000/api/teacher_login/register`, UserRegisterData,customConfig)
+      await axios.post(`api/teacher_login/register`, UserRegisterData,customConfig)
         .then((response) => {
           console.log(response.data);
             if (response.status == 200) {

@@ -123,7 +123,7 @@ export default {
   // posting data to logindata1 (login data for student)
       await axios
         .post(
-          `http://localhost:3000/api/register`,
+          `api/register`,
           UserRegisterData,
           customConfig
         )
@@ -137,7 +137,7 @@ export default {
           // posting data for the student profile database
         await axios
         .post(
-          `http://localhost:3000/api/student/profile/make_profile`,
+          `api/student/profile/make_profile`,
           {
             name: this.studentdata.name,
             email:this.studentdata.email,

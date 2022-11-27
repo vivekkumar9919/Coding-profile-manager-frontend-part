@@ -130,7 +130,7 @@ export default {
 
       await axios
         .post(
-          `http://localhost:3000/api/student/add_friend`,
+          `api/student/add_friend`,
           DataByUser,
           customConfig
         )
@@ -150,7 +150,7 @@ export default {
     //  feching data from server
     await axios
       .get(
-        "http://localhost:3000/api/student/showing_friend/" +
+        "api/student/showing_friend/" +
           localStorage.getItem("email1")
       )
       .then((response) => {

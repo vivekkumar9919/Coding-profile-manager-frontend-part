@@ -429,7 +429,7 @@ export default {
     this.username = localStorage.getItem("email1");
     await axios
       .get(
-        "http://localhost:3000/api/student/profile/showing_profile/" +
+        "api/student/profile/showing_profile/" +
           this.username
       )
       .then((response) => {
@@ -528,7 +528,7 @@ export default {
       };
       await axios
         .put(
-          `http://localhost:3000/api/student/profile/update/` +
+          `api/student/profile/update/` +
             localStorage.getItem("email1"),
           {
             name: this.profiledata.name,

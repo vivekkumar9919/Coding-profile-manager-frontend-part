@@ -94,7 +94,7 @@ export default {
 
       await axios
         .get(
-          `http://localhost:3000/api/login/` + this.logindetails.email,
+          `api/login/` + this.logindetails.email,
           customConfig
         )
         .then((res) => {

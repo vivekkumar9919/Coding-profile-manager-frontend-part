@@ -162,7 +162,7 @@ export default {
 
       await axios
         .post(
-          `http://localhost:3000/api/student/question`,
+          `api/student/question`,
           DataByUser,
           customConfig
         )
@@ -184,7 +184,7 @@ export default {
         // },
       // }
           await axios.delete(
-          `http://localhost:3000/api/student/question/delete_questions/`+a,
+          `api/student/question/delete_questions/`+a,
           // customConfig
         )
         .then((response) => {
@@ -201,7 +201,7 @@ export default {
   async mounted() {
     await axios
       .get(
-        "http://localhost:3000/api/student/question/showing_question/" +
+        "api/student/question/showing_question/" +
           localStorage.getItem("email1")
       )
       .then((response) => {
