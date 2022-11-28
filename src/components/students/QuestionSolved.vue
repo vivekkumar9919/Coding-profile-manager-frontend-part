@@ -170,7 +170,8 @@ export default {
           console.log(response.data);
           alert("Question added successfully");
           document.getElementById("formid").reset();
-          location.reload();
+          // location.reload();
+          this.$router.push("qustion_solved");
         })
         .catch((err) => {
           console.log(`nhi hua bhai ye rha errr ${err}`);
@@ -191,6 +192,7 @@ export default {
           console.log(response.data);
           alert("Question deleted successfully");
           // location.reload();
+          this.$router.push("qustion_solved");
         })
         .catch((err) => {
           console.log(`nhi hua bhai ye rha errr ${err}`);

@@ -557,6 +557,7 @@ export default {
       document.getElementById("profileContID").style.visibility = "visible";
       document.getElementById("profileContID").style.display = "flex";
       // location.reload();
+      this.$router.push("profile");
     },
 
     cancelfunc() {

@@ -139,7 +139,8 @@ export default {
           console.log(response.data);
           alert("Friend added successfully");
           document.getElementById('formid').reset();
-          location.reload();
+          // location.reload();
+          this.$router.push("addfriend");
         })
         .catch((err) => {
           console.log(`nhi hua bhai ye rha errr ${err}`);
