@@ -98,7 +98,8 @@ export default {
           customConfig
         )
         .then((res) => {
-          if (res.status == 200) {
+          if (res.status == 200 && res.data[0]['password']==this.logindetails.password) {
+             
             console.log("login successufully");
                  if(localStorage.getItem('email2')){
               localStorage.setItem('email2',"");
@@ -108,8 +109,8 @@ export default {
             localStorage.setItem("student_flag", true);
             localStorage.setItem("email1",this.logindetails.email)
             this.$router.push("/student/profile");
-          } else if(res.status==404){
-            console.log(" email is wrong");
+          } else {
+            alert("  password is wrong");
           }
         }).catch((err)=>{
           console.log(err);

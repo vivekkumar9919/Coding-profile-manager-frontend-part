@@ -108,8 +108,8 @@
                   <h5 class="card-title">Services for Teacher</h5>
                   <ul>
                     <li><p class="card-text"><strong><i>Check Profile:- </i></strong> Teacher can check the profile of codechef,codeforces and leetcode user </p></li>
-                    <li><p class="card-text"><strong><i>Add Student:- </i></strong>Add many friends from different coding platoform and observe there profile </p></li>
-                    <li><p class="card-text"><strong><i>Sortlist Student:- </i></strong>Add all question solve on different coding platofirm with a lots of information</p></li>
+                    <li><p class="card-text"><strong><i>Add Student:- </i></strong>Teacher can add student username to observe there progress in real time </p></li>
+                    <li><p class="card-text"><strong><i>Sortlist Student:- </i></strong>Teacher can sortlist the students profile using the different selection criteria and save the selected student  </p></li>
 
                   </ul>
                  </div>
@@ -138,7 +138,7 @@
              <label for="rating">Rating(1-5)</label>
            </div>
            <div class="form-floating  mb-3">
-               <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 110px" required></textarea>
+               <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 130px" required></textarea>
                <label for="floatingTextarea">Comments</label>
             </div>
 
