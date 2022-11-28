@@ -59,9 +59,9 @@
           <div class="mt-3">
             <p class="mb-0 text-center">
               Don't have an account?
-              <a href="/login/studentsinup" class="text-primary fw-bold"
-                >Sign Up</a
-              >
+              <!-- <a href="/login/studentsinup" class="text-primary fw-bold">Sign Up</a> -->
+              <!-- <a href="/login/studentsinup" class="text-primary fw-bold">Sign Up</a> -->
+              <router-link to="login/studentsinup">Sign Up</router-link>
             </p>
           </div>
         </div>
