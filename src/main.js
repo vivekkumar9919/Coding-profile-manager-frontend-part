@@ -5,7 +5,7 @@ import VueRouter from 'vue-router'
 import axios from 'axios'
 
 // base url link
-axios.defaults.baseURL= 'http://localhost:3000/'
+axios.defaults.baseURL= 'https://codingprofilemanagerapi.onrender.com/'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter);
