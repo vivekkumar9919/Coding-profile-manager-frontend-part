@@ -190,7 +190,7 @@ export default {
         .then((response) => {
           console.log(response.data);
           alert("Question deleted successfully");
-          location.reload();
+          // location.reload();
         })
         .catch((err) => {
           console.log(`nhi hua bhai ye rha errr ${err}`);

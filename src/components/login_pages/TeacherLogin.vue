@@ -47,7 +47,7 @@
             <p class="mb-0 text-center">
               Don't have an account?
               <!-- <a href="/login/teachersignup" class="text-primary fw-bold">Sign Up</a> -->
-              <router-link to="login/teachersignup" class="text-primary fw-bold">Sign Up</router-link>
+              <router-link to="teachersignup" class="text-primary fw-bold">Sign Up</router-link>
             </p>
           </div>
         </div>

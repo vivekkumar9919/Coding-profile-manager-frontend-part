@@ -14,15 +14,15 @@
         </li>
         <li class="nav-item">
           <!-- <a class="nav-link" href="/student/profile">Profile</a> -->
-          <router-link to="student/profile"  class="nav-link">Profile</router-link>
+          <router-link to="profile"  class="nav-link">Profile</router-link>
         </li>
         <li class="nav-item">
           <!-- <a class="nav-link" href="/student/addfriend">Add Friends</a> -->
-           <router-link to="student/addfriend"  class="nav-link">Add Friends</router-link>
+           <router-link to="addfriend"  class="nav-link">Add Friends</router-link>
         </li>
         <li class="nav-item">
           <!-- <a class="nav-link" href="/student/qustion_solved">Question Solved</a> -->
-           <router-link to="student/qustion_solved"  class="nav-link">Question Solved</router-link>
+           <router-link to="qustion_solved"  class="nav-link">Question Solved</router-link>
         </li>
         <!-- <li class="nav-item">
           <a class="nav-link" href="/student/target">Target</a>

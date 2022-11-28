@@ -12,7 +12,7 @@
       </div>
       <div id="teacherContainer" class="loginBox">
         <!-- <a href="/login/teacher">Teacher Login</a> -->
-         <router-link to="login/teacher"  class="nav-link">Teacher Login</router-link>
+         <router-link to="teacher"  class="nav-link">Teacher Login</router-link>
       </div>
     </div>
     <router-view></router-view>

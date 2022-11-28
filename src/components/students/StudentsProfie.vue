@@ -556,7 +556,7 @@ export default {
       document.getElementById("formContID").style.display = "none";
       document.getElementById("profileContID").style.visibility = "visible";
       document.getElementById("profileContID").style.display = "flex";
-      location.reload();
+      // location.reload();
     },
 
     cancelfunc() {

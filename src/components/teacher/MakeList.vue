@@ -153,7 +153,7 @@ export default {
           console.log(response.data);
           alert("Student added successfully");
           document.getElementById('formid').reset();
-          location.reload();
+          // location.reload();
         })
         .catch((err) => {
           console.log(`nhi hua bhai ye rha errr ${err}`);

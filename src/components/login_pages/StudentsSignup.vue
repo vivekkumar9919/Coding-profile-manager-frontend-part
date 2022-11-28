@@ -92,7 +92,7 @@
             <p class="mb-0 text-center">
               Already have account!
               <!-- <a href="/login" class="text-primary fw-bold">Login</a> -->
-              <router-link to="login" class="text-primary fw-bold">Login</router-link>
+              <router-link to="/login" class="text-primary fw-bold">Login</router-link>
             </p>
           </div>
         </div>
