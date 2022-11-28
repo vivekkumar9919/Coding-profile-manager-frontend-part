@@ -558,7 +558,7 @@ export default {
       document.getElementById("profileContID").style.display = "flex";
       // location.reload();
       // this.$router.push("profile");
-      this.$router.go(this.$router.currentRoute)
+      this.$router.go()
     },
 
     cancelfunc() {
