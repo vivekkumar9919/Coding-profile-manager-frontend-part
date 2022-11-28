@@ -9,16 +9,20 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <!-- <a class="nav-link active" aria-current="page" href="/">Home</a> -->
+           <router-link to="/"  class="nav-link">Home</router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/teacher/check_profileA">Check Profile</a>
+          <!-- <a class="nav-link" href="/teacher/check_profileA">Check Profile</a> -->
+           <router-link to="teacher/check_profileA"  class="nav-link">Check Profile</router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/teacher/makelist">Make List</a>
+          <!-- <a class="nav-link" href="/teacher/makelist">Make List</a> -->
+           <router-link to="teacher/makelist"  class="nav-link">Make List</router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/teacher/sortlist">Sortlist Profile</a>
+          <!-- <a class="nav-link" href="/teacher/sortlist">Sortlist Profile</a> -->
+           <router-link to="teacher/sortlist"  class="nav-link">Sortlist Profile</router-link>
         </li>
         <!-- <li class="nav-item">
           <a class="nav-link" href="/teacher/send">Send Question</a>

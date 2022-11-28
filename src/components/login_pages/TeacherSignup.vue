@@ -99,7 +99,8 @@
           <div class="mt-3">
             <p class="mb-0 text-center">
               Already have account!
-              <a href="/login/teacher" class="text-primary fw-bold">Login</a>
+              <!-- <a href="/login/teacher" class="text-primary fw-bold">Login</a> -->
+              <router-link to="login/teacher" class="text-primary fw-bold">Login</router-link>
             </p>
           </div>
         </div>

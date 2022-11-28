@@ -39,11 +39,6 @@
                 v-model="teacherlogin.password"
               />
             </div>
-            <p class="small">
-              <a class="text-primary" href="forget-password.html"
-                >Forgot password?</a
-              >
-            </p>
             <div class="d-grid">
               <button class="btn btn-primary">Login</button>
             </div>
@@ -51,7 +46,8 @@
           <div class="mt-3">
             <p class="mb-0 text-center">
               Don't have an account?
-              <a href="/login/teachersignup" class="text-primary fw-bold">Sign Up</a>
+              <!-- <a href="/login/teachersignup" class="text-primary fw-bold">Sign Up</a> -->
+              <router-link to="login/teachersignup" class="text-primary fw-bold">Sign Up</router-link>
             </p>
           </div>
         </div>
