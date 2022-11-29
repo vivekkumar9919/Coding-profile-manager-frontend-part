@@ -23,6 +23,13 @@
           "
         >
           <h2 class="text-center mb-4 text-primary">SignUp Form Students</h2>
+                    <!-- error msg -->
+          <div class="errmsg">
+            <div style="color:red">{{this.errmsg}}</div>
+          </div>
+          <div class="errmsg">
+            <div style="color:red">{{this.alreadyexist}}</div>
+          </div>
           <form class="form" @submit.prevent="datapost()">
             <div class="mb-2">
               <label for="exampleInputName" class="form-label">Name</label>
@@ -67,6 +74,7 @@
                 type="password"
                 class="form-control border"
                 id="exampleInputPassword2"
+                 v-model="studentdata.Cpassword"
               />
             </div>
 
@@ -95,6 +103,8 @@
               <router-link to="/login" class="text-primary fw-bold">Login</router-link>
             </p>
           </div>
+
+
         </div>
       </div>
     </div>
@@ -108,11 +118,23 @@ export default {
   data() {
     return {
       studentdata: {},
+      errmsg:'',
+      alreadyexist:'',
     };
   },
   methods: {
+
+
+
     async datapost() {
-      console.log(this.studentdata);
+     
+ 
+       const passlen =this.studentdata.password.length;
+       const pass1=this.studentdata.password;
+       const pass2=this.studentdata.Cpassword;
+        if(pass1==pass2 && passlen>8) {
+      
+     
       const UserRegisterData = await JSON.stringify(this.studentdata);
       console.log(`json data ${UserRegisterData}`);
       let customConfig = {
@@ -128,14 +150,9 @@ export default {
           UserRegisterData,
           customConfig
         )
-        .then((response) => {
-          console.log(response.data);
-        })
-        .catch((err) => {
-          console.log(`nhi hua bhai ye rha errr ${err}`);
-        });
+        .then(async() => {
           
-          // posting data for the student profile database
+        // posting data for the student profile database
         await axios
         .post(
           `api/student/profile/make_profile`,
@@ -153,6 +170,18 @@ export default {
           console.log(`nhi hua bhai ye rha errr ${err}`);
         });
 
+        })
+        .catch(() => {
+           this.alreadyexist="Mail already Exist! Please login"
+        });
+          
+
+        }
+        else{
+              this.errmsg="Password not Matched or Pass lenght is less than 8 character"
+        }
+        
+
     },
   },
 };
@@ -164,5 +193,9 @@ export default {
   margin-left: 20px;
   padding: 5px;
   border-radius: 4px;
+}
+.errmsg{
+  text-align: center;
+  margin-top: 10px;
 }
 </style>

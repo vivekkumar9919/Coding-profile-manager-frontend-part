@@ -8,7 +8,7 @@
     <div class="outerContainerLogin ">
       <div id="studentContainer" class="loginBox">
         <!-- <a href="/login/">Students Login</a> <br /> -->
-         <router-link to="login"  class="nav-link">Students Login</router-link>
+         <router-link to="/login"  class="nav-link">Students Login</router-link>
       </div>
       <div id="teacherContainer" class="loginBox">
         <!-- <a href="/login/teacher">Teacher Login</a> -->

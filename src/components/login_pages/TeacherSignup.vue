@@ -23,6 +23,12 @@
           "
         >
           <h2 class="text-center mb-4 text-primary">SignUp Form Teacher</h2>
+            <div class="errmsg">
+            <div style="color:red">{{this.errmsg}}</div>
+          </div>
+          <div class="errmsg">
+            <div style="color:red">{{this.alreadyexist}}</div>
+          </div>
           <form class="form" @submit.prevent="datapost()">
             <div class="mb-2">
               <label for="InputName" class="form-label">Name</label>
@@ -77,6 +83,7 @@
                 type="password"
                 class="form-control border"
                 id="InputPassword2"
+                v-model="teacherdata.Cpassword"
               />
             </div>
           
@@ -122,11 +129,17 @@ export default {
     data(){
       return{
         teacherdata:{},
+        errmsg:'',
+        alreadyexist:'',
       }
     },
   methods: {
     async datapost() {
-      console.log(this.teacherdata);
+        const passlen =this.teacherdata.password.length;
+       const pass1=this.teacherdata.password;
+       const pass2=this.teacherdata.Cpassword;
+       if(pass1==pass2 && passlen>8){
+
       const UserRegisterData = await JSON.stringify(this.teacherdata);
       console.log(`json data ${UserRegisterData}`);
      let customConfig = {
@@ -138,20 +151,18 @@ export default {
       await axios.post(`api/teacher_login/register`, UserRegisterData,customConfig)
         .then((response) => {
           console.log(response.data);
-            if (response.status == 200) {
-            console.log("Signup successufully");
             localStorage.setItem("teacher_flag", true);
             localStorage.setItem("email2",this.teacherdata.email)
-            this.$router.push("teacher");
-          } else {
-            console.log(" email is wrong");
-          }
-         
+            this.$router.push("teacher");  
         })
-        .catch((err) => {
-          console.log(`nhi hua bhai ye rha errr ${err}`);
-          alert("Email Already exist ")
+        .catch(() => {
+       this.alreadyexist="Mail already Exist! Please login"
         });
+       }
+       else{
+        this.errmsg="Password not Matched or Pass lenght is less than 8 character"
+       }
+
     },
   },
 
