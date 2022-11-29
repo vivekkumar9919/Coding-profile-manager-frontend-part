@@ -1,7 +1,7 @@
 import HomePage from './components/HomePage.vue'
 import MainPage from './components/MainPage.vue'
-import CheckProfile from './components/CheckProfile.vue'
-import SortlistProfile from './components/SortlistProfile.vue'
+// import CheckProfile from './components/CheckProfile.vue'
+// import SortlistProfile from './components/SortlistProfile.vue'
 import LoginPage from './components/LoginPage.vue'
 
 // login pages
@@ -34,8 +34,8 @@ export default [
 
     {path:'/',component:MainPage,children:[
         {path:'', component: HomePage},
-        {path:'Check_Profile',component:CheckProfile},
-        {path:'Sortlist_Profile',component:SortlistProfile},
+        // {path:'Check_Profile',component:CheckProfile},
+        // {path:'Sortlist_Profile',component:SortlistProfile},
       
     ]}, 
     {path:'/login',component:LoginPage,children:[
@@ -61,6 +61,7 @@ export default [
         {path:'send', component: SendQuestion , meta:{teachergurd:true}},
 
     ]},
+    {path:'*', component:HomePage}
 
 
    

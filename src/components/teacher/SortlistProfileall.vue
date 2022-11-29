@@ -284,7 +284,7 @@ export default {
         },
       };
             await axios.post(
-                "http://localhost:3000/api/teacher/sortlist/savelist",
+                "api/teacher/sortlist/savelist",
                 {
                    status:this.status,
                    email:localStorage.getItem('email2'),

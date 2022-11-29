@@ -24,9 +24,7 @@
           <!-- <a class="nav-link" href="/teacher/sortlist">Sortlist Profile</a> -->
            <router-link to="sortlist"  class="nav-link">Sortlist Profile</router-link>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="/teacher/send">Send Question</a>
-        </li> -->
+   
         <li class="nav-item">
           <a class="nav-link" @click="logoutfun2">Logout</a>
         </li>

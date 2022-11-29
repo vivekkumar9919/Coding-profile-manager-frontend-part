@@ -142,7 +142,7 @@ export default {
             console.log("Signup successufully");
             localStorage.setItem("teacher_flag", true);
             localStorage.setItem("email2",this.teacherdata.email)
-            this.$router.push("/teacher");
+            this.$router.push("teacher");
           } else {
             console.log(" email is wrong");
           }
