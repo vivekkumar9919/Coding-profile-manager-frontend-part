@@ -327,7 +327,7 @@ export default {
   font-size: 40px;
   font-family: cursive;
   color: white;
-  background-color: rgb(2, 117, 216);
+  /* background-color: rgb(2, 117, 216); */
   width: fit-content;
   padding-left: 5px;
   padding-right: 5px;

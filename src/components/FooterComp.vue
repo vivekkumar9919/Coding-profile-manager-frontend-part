@@ -3,7 +3,7 @@
     <div>
        <div id="footerbox">
            <div id="name">Coding Profile Manager </div>
-           <hr>
+           <center><hr style="width:40%; color :white; height:2px; "></center>
            <div id="copy">
             Developed By Vivek Kumar &COPY; 2022 All Rights Reserved
            </div>
@@ -21,7 +21,7 @@ export default {
 <style scoped>
 #footerbox{
     height: 200px;
-    background-color: rgb(2, 117, 216);
+    background-color: #70828f;
     /* margin-top: 100px; */
 }
 #copy{
@@ -34,7 +34,7 @@ export default {
     padding-top: 45px;
     letter-spacing: 2px;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 25px;
     text-align: center;
 }
 </style>

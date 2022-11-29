@@ -221,8 +221,9 @@
       <div class="reviewCont" >
            <div class="card" style="width: 15rem; margin-right:10px;" v-for="feed in feedbackdetails" :key="feed.id" >
                 <div class="card-body ">
-                  <h6 class="card-title">{{feed['email']}}</h6>
-                   <p class="card-text">{{feed['comments']}}</p>
+                  <div class="ImgCont"><img src="../assets/Profile_img.png" alt="img" id="imgBox"></div>
+                  <center><h6 class="card-title">{{feed['email']}}</h6></center>
+                   <p class="card-text" style="text-align:center;">{{feed['comments']}}</p>
                 </div>
             </div>
       </div>
@@ -372,7 +373,7 @@ export default {
   font-size: 40px;
   font-family: cursive;
   color: white;
-  background-color: rgb(2, 117, 216);
+  /* background-color: rgb(2, 117, 216); */
   width: fit-content;
   padding-left: 5px;
   padding-right: 5px;
@@ -463,9 +464,9 @@ export default {
   text-align: center;
   margin-top: 40px;
 }
-.StudentService {
-  /* border:2px solid red; */
-}
+/* .StudentService {
+  border:2px solid red;
+} */
 .teacherservices {
   margin-top: 100px;
   /* border:2px solid black; */
@@ -525,6 +526,14 @@ export default {
   padding-top: 10px;
   padding-bottom: 20px;
   margin-bottom: 50px;
+}
+#imgBox{
+height: 70px;
+width: 70px;
+}
+.ImgCont{
+ display: flex;
+justify-content: center; 
 }
 </style>
 

@@ -2,6 +2,7 @@ import HomePage from './components/HomePage.vue'
 import MainPage from './components/MainPage.vue'
 // import CheckProfile from './components/CheckProfile.vue'
 // import SortlistProfile from './components/SortlistProfile.vue'
+import PageNotfound from './components/PageNotfound.vue'
 import LoginPage from './components/LoginPage.vue'
 
 // login pages
@@ -61,7 +62,7 @@ export default [
         {path:'send', component: SendQuestion , meta:{teachergurd:true}},
 
     ]},
-    {path:'*', component:HomePage}
+    {path:'*', component:PageNotfound}
 
 
    

@@ -259,7 +259,7 @@ export default {
 
 <style scoped>
 #topheading {
-    margin-top: 20px;
+    margin-top: 90px;
   text-align: center;
   font-size: 28px;
   letter-spacing: 1px;
