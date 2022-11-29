@@ -353,7 +353,7 @@ export default {
 
 .ContentBox {
   padding-top: 30px;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   /* background-image: url('../assets/sortlist2.png'); */
   background-repeat: no-repeat;
   background-size: cover;
@@ -400,9 +400,9 @@ export default {
   font-size: 20px;
   color: black;
 }
-#mytable {
-  /* visibility: hidden; */
-}
+/* #mytable {
+  visibility: hidden;
+} */
 
 #mytable table,
 #mytable th,

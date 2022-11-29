@@ -18,7 +18,15 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#services">Services</a>
-            <!-- <router-link to="/Sortlist_Profile" class="nav-link">Sortlist Profile</router-link> -->
+
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#feedback">Feedback</a>
+    
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#review">review</a>
+
         </li>
    
         <span class=" loginNavelement">
