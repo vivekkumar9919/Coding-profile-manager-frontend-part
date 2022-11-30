@@ -409,8 +409,8 @@ export default {
 }
 
 .accordion {
-  --bs-accordion-btn-icon: url();
-  --bs-accordion-btn-active-icon: url();
+  --bs-accordion-btn-icon: url(#);
+  --bs-accordion-btn-active-icon: url(#);
 }
 
 .supportedplatformCont {

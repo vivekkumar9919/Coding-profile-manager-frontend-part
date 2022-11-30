@@ -393,9 +393,9 @@
 
 
         <div class="box3 ">
-             <div id="codechef" class="icon"  v-if="this.datafromAPI.codechefurl"><a v-bind:href="this.datafromAPI.codechefurl"><img src="../../assets/iconchef.png" alt="leetcode" class="platformicon"></a></div>
-             <div id="codeforces" class="icon"  v-if="this.datafromAPI.codechefuser"><a v-bind:href="this.datafromAPI.codeforcesurl"><img src="../../assets/iconforces.png" alt="leetcode" class="platformicon"></a></div>
-             <div id="leetcode" class="icon"  v-if="this.datafromAPI.leetcodeurl"><a v-bind:href="this.datafromAPI.leetcodeurl"><img src="../../assets/iconleet.png" alt="leetcode" class="platformicon"></a></div>
+             <div id="codechef" class="icon"  v-if="this.datafromAPI.codechefurl"><a v-bind:href="this.datafromAPI.codechefurl" target="_blank"><img src="../../assets/iconchef.png" alt="leetcode" class="platformicon"></a></div>
+             <div id="codeforces" class="icon"  v-if="this.datafromAPI.codechefuser"><a v-bind:href="this.datafromAPI.codeforcesurl" target="_blank"><img src="../../assets/iconforces.png" alt="leetcode" class="platformicon"></a></div>
+             <div id="leetcode" class="icon"  v-if="this.datafromAPI.leetcodeurl"><a v-bind:href="this.datafromAPI.leetcodeurl" target="_blank"><img src="../../assets/iconleet.png" alt="leetcode" class="platformicon"></a></div>
         </div>
 
 
@@ -557,8 +557,8 @@ export default {
       document.getElementById("profileContID").style.visibility = "visible";
       document.getElementById("profileContID").style.display = "flex";
       // location.reload();
-      // this.$router.push("profile");
-      this.$router.go()
+      this.$router.push("/student/profile");
+      // this.$router.go()
     },
 
     cancelfunc() {
