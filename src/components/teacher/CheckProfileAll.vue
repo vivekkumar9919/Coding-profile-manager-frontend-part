@@ -7,9 +7,7 @@
         <div id="topheading">
           <div id="heading1">Check Coding Profile</div>
           <div id="headingContent">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
-            aliquam quod illo alias, commodi necessitatibus Lorem ipsum dolor
-            sit amet.
+         This project is develop to integrate the profile data of leetcode, codechef and codeforces at one place with other more features.
           </div>
         </div>
       </div>

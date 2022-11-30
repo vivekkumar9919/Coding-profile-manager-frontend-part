@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>home page</h1>
-        <h1>{{this.useremail}}</h1>
+     
     </div>
 </template>
 
