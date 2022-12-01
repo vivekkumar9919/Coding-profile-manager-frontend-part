@@ -438,7 +438,7 @@ export default {
       )
       .then((response) => {
         this.datafromAPI = response.data[0];
-        // console.log(this.datafromAPI);
+       
         this.profiledata.name = this.datafromAPI.name;
         this.profiledata.codechef = this.datafromAPI.codechef;
         this.profiledata.codeforces = this.datafromAPI.codeforces;
@@ -453,7 +453,6 @@ export default {
           (this.profiledata.profession = this.datafromAPI.profession);
           (this.profiledata.designation = this.datafromAPI.designation);
         
-        console.log(this.profiledata);
       })
       .catch((error) => {
         console.log(error);
@@ -462,14 +461,14 @@ export default {
 
     // sending the request for codechef data
     if (this.profiledata.codechef) {
-      console.log("Sending the codechef request");
+      // console.log("Sending the codechef request");
       await axios
         .get(
           "api/codechef/user/" +
             this.profiledata.codechef
         )
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           this.codechefuser = response.data;
           // console.log(this.codechefuser)
         })
@@ -481,7 +480,7 @@ export default {
 
     // sending the request for codeforces data
     if (this.profiledata.codeforces) {
-      console.log("Sending the codeforces request");
+      // console.log("Sending the codeforces request");
       await axios
         .get(
           "https://competeapi.vercel.app/user/codeforces/" +
@@ -499,7 +498,7 @@ export default {
 
     // sending the request for leetcode data
     if (this.profiledata.leetcode) {
-      console.log("Sending the codechef request");
+      // console.log("Sending the codechef request");
       await axios
         .get(
           "api/leetcode/user/" +
@@ -507,29 +506,21 @@ export default {
         )
         .then((response) => {
           this.leetcodeuser = response.data['data'];
-          console.log(this.contestRanking=this.leetcodeuser['userContestRanking'])
+          this.contestRanking=this.leetcodeuser['userContestRanking']
            this.toatal_solved=this.leetcodeuser['matchedUser']['submitStats']['acSubmissionNum'][0].count
           this.easy_solved=this.leetcodeuser['matchedUser']['submitStats']['acSubmissionNum'][1].count
           this.medium_solved=this.leetcodeuser['matchedUser']['submitStats']['acSubmissionNum'][2].count
           this.hard_solved=this.leetcodeuser['matchedUser']['submitStats']['acSubmissionNum'][3].count
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
           this.errmsg2 = "Error in fetching data";
         });
     }
   },
 
   // before update 
-  beforeUpdate(){
-    console.log("before update")
-    this.profiledata.name = this.datafromAPI.name;
-  },
-
-  updated(){
-    console.log("After update")
-    this.profiledata.name = this.datafromAPI.name;
-  },
+ 
 
   
   methods: {
@@ -540,7 +531,7 @@ export default {
       document.getElementById("profileContID").style.display = "none";
     },
     async saveprofile() {
-      console.log(this.profiledata);
+      // console.log(this.profiledata);
       let customConfig = {
         headers: {
           "Content-Type": "application/json",

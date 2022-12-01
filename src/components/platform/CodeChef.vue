@@ -73,11 +73,11 @@ export default {
             .then((response)=>{
                 // console.log(this.username);
                 this.posts=response.data
-                console.log(this.posts)
+                // console.log(this.posts)
                 
             })
             .catch((error)=>{
-            console.log(error);
+            // console.log(error);
             this.errmsg='Error in fetching data'
 
             })

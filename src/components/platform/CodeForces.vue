@@ -67,12 +67,12 @@ export default {
            await axios.get('api/codeforces/user/'+this.username)
             .then((response)=>{
                 // console.log(response.data);
-                console.log(this.username);
+                // console.log(this.username);
                 this.posts=response.data
-                console.log(this.posts);
+                // console.log(this.posts);
             })
             .catch((error)=>{
-            console.log(error);
+            // console.log(error);
             this.errmsg='Error in fetching data'
 
             })

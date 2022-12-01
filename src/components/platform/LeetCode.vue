@@ -75,9 +75,9 @@ export default {
         //    await axios.get('https://competitive-coding-api.herokuapp.com/api/leetcode/'+this.username2)
            await axios.get('api/leetcode/user/'+this.username2)
             .then((response)=>{
-                console.log(response.data);
+                // console.log(response.data);
                 this.posts2=response.data['data']
-                console.log(this.contestRanking=this.posts2['userContestRanking'])
+                this.contestRanking=this.posts2['userContestRanking']
                 this.toatal_solved=this.posts2['matchedUser']['submitStats']['acSubmissionNum'][0].count
                 this.easy_solved=this.posts2['matchedUser']['submitStats']['acSubmissionNum'][1].count
                 this.medium_solved=this.posts2['matchedUser']['submitStats']['acSubmissionNum'][2].count
@@ -85,7 +85,7 @@ export default {
                 
             })
             .catch((error)=>{
-            console.log(error);
+            // console.log(error);
             this.errmsg2='Error in fetching data'
 
             })

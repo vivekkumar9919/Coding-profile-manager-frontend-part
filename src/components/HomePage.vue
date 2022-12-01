@@ -295,7 +295,7 @@ export default {
     axios
       .get("api/feedback//show_feedback")
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         this.feedbackdetails = response.data;
       })
       .catch((err) => {
@@ -314,7 +314,7 @@ export default {
       return dt;
     },
     async feedbackfunc() {
-      console.log("feedback form submitted");
+      // console.log("feedback form submitted");
   let customConfig = {
         headers: {
           "Content-Type": "application/json",

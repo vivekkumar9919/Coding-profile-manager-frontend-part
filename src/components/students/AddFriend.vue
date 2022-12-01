@@ -119,7 +119,7 @@ export default {
 
   methods: {
     async addfriendfunc() {
-      console.log(this.inputdata);
+      // console.log(this.inputdata);
       const DataByUser = await JSON.stringify({
         email: localStorage.getItem("email1"),
         username: this.inputusername,
@@ -140,7 +140,7 @@ export default {
         )
         .then((response) => {
 
-          console.log(response.data);
+          // console.log(response.data);
           alert("Friend added successfully");
           document.getElementById('formid').reset();
           // location.reload();
@@ -159,13 +159,13 @@ export default {
           localStorage.getItem("email1")
       )
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         this.friendlist = response.data;
         // console.log(this.friendlist[0]["platform"]);
         // console.log(this.friendlist[0]["username"]);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         this.errmsg = "Error in fetching data";
       });
 
@@ -182,7 +182,7 @@ export default {
             // console.log(this.userdata)
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
             this.errmsg = "Error in fetching data";
           });
         const boxWrapper = document.getElementById("addrowcodechef");
@@ -202,7 +202,7 @@ export default {
 
       //   codeforces block
       else if (this.friendlist[i]["platform"] == "codeforces") {
-        console.log("inside the codeforces block");
+        // console.log("inside the codeforces block");
             await axios.get('https://competeapi.vercel.app/user/codeforces/'+this.friendlist[i]["username"])
         .then((res) => {
           // console.log(res.data);
@@ -210,7 +210,7 @@ export default {
           // console.log(this.userdata)
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
           this.errmsg = "Error in fetching data";
         });
 
@@ -230,7 +230,7 @@ export default {
 
       //    leetcode block
       else if (this.friendlist[i]["platform"] == "leetcode") {
-        console.log("inside the leetcode block");
+        // console.log("inside the leetcode block");
             await axios.get("api/leetcode/user/" +this.friendlist[i]["username"])
         .then((res) => {
           // console.log(res.data);
@@ -243,7 +243,7 @@ export default {
           
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
           this.errmsg = "Error in fetching data";
         });
 

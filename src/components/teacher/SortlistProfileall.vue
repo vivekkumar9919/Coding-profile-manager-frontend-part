@@ -199,12 +199,11 @@ export default {
       let month = dt.getMonth();
       let year = dt.getFullYear();
       let todayDate = date + "/" + month + "/" + year;
-      console.log(todayDate);
+  
 
-      console.log("generate data");
 
       for (let key in this.userlist) {
-        console.log(this.userlist[key]);
+        // console.log(this.userlist[key]);
 
         this.posts = [];
         await axios
@@ -212,8 +211,8 @@ export default {
            `api/codechef/user/${this.userlist[key]}`
           )
           .then((response) => {
-            console.log("Inside the api call");
-            console.log(response.data);
+          
+            // console.log(response.data);
             this.posts = response.data;
           })
           .catch((error) => {
@@ -232,16 +231,14 @@ export default {
             this.posts.country_rank <= this.userInpCRank
           ) {
               this.status='Yes'
-              console.log("yes");
+           
           }
           else{
             this.status="No"
-            console.log('No');
+          
           }
 
 
-          console.log("After getpost function");
-          console.log(this.posts);
         const boxWrapper = document.getElementById("addrowcodechef");
         const box = document.createElement("tr");
         if(this.status=='Yes'){
