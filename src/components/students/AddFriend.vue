@@ -201,7 +201,7 @@ export default {
       }
 
       //   codeforces block
-      else if (this.friendlist[i]["platform"] == "codeforce") {
+      else if (this.friendlist[i]["platform"] == "codeforces") {
         console.log("inside the codeforces block");
             await axios.get('https://competeapi.vercel.app/user/codeforces/'+this.friendlist[i]["username"])
         .then((res) => {
