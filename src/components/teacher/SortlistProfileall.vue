@@ -191,21 +191,7 @@ export default {
       }
     },
 
-    // getPost(userid) {
-
-    //     axios.get('https://competitive-coding-api.herokuapp.com/api/codechef/' + userid)
-    //         .then((response) => {
-    //             console.log("Inside the api call");
-    //             console.log(response.data);
-    //             this.posts = response.data
-
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //             this.errmsg = 'Error in fetching data'
-
-    //         })
-    // },
+  
 
     async generatedata() {
       let dt = new Date();
@@ -216,15 +202,14 @@ export default {
       console.log(todayDate);
 
       console.log("generate data");
-    //   document.getElementById("mytable").style.visibility = "visible";
-        //  console.log("msg"+this.userlist);
+
       for (let key in this.userlist) {
         console.log(this.userlist[key]);
 
         this.posts = [];
         await axios
           .get(
-            "https://competitive-coding-api.herokuapp.com/api/codechef/" +this.userlist[key]
+           `api/codechef/user/${this.userlist[key]}`
           )
           .then((response) => {
             console.log("Inside the api call");
@@ -240,9 +225,9 @@ export default {
         if (this.posts.length != 0) {
               
         if (
-            this.posts.stars[0] >= this.userInpStars &&
-            this.userInpRating <= this.posts.rating &&
-            this.userInpHRating <= this.posts.highest_rating &&
+            this.posts.rating[0] >= this.userInpStars &&
+            this.userInpRating <= this.posts.rating_number &&
+            this.userInpHRating <= this.posts.max_rank &&
             this.posts.global_rank <= this.userInpGRating &&
             this.posts.country_rank <= this.userInpCRank
           ) {
@@ -267,9 +252,9 @@ export default {
         }
         box.innerHTML = `
               <td>${this.userlist[key]}</td>
-              <td>${this.posts.stars}</td>
               <td>${this.posts.rating}</td>
-              <td>${this.posts.highest_rating}</td>
+              <td>${this.posts.rating_number}</td>
+              <td>${this.posts.max_rank}</td>
               <td>${this.posts.global_rank}</td>
               <td>${this.posts.country_rank}</td>
               <td>${this.status}</td>

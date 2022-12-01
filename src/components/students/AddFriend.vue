@@ -45,7 +45,7 @@
         <table class="table table-striped table-hover">
           <thead>
             <tr>
-              <th scope="col">Name</th>
+          
               <th scope="col">Username</th>
               <th scope="col">Stars</th>
               <th scope="col">Rating</th>
@@ -83,9 +83,9 @@
           <thead>
             <tr>
               <th scope="col">Username</th>
-              <th scope="col">Ranking</th>
+          
               <th scope="col">Total Problems Solved</th>
-              <th scope="col">Acceptance Rate</th>
+  
               <th scope="col">Easy Problems</th>
               <th scope="col">Medium Problems</th>
               <th scope="col">Hard Problems</th>
@@ -110,6 +110,10 @@ export default {
       userdata: {},
       inputusername: "",
       platformselect: "",
+             toatal_solved:'',
+             easy_solved:'',
+             medium_solved:'',
+             hard_solved:'',
     };
   },
 
@@ -170,8 +174,8 @@ export default {
     for (var i = 0; i < this.friendlist.length; i++) {
 
       if (this.friendlist[i]["platform"] == "codechef") {
-        console.log("inside the codeforces block");
-        await axios.get("https://competitive-coding-api.herokuapp.com/api/codechef/"+this.friendlist[i]["username"])
+     
+        await axios.get("api/codechef/user/"+this.friendlist[i]["username"])
           .then((res) => {
             // console.log(res.data);
             this.userdata = res.data;
@@ -185,11 +189,11 @@ export default {
 
         const box = document.createElement("tr");
         box.innerHTML = `
-                <td>${this.userdata["user_details"]["name"]}</td>
+    
               <td>${this.friendlist[i]["username"]}</td>
-              <td>${this.userdata.stars}</td>
               <td>${this.userdata.rating}</td>
-              <td>${this.userdata.highest_rating}</td>
+              <td>${this.userdata.rating_number}</td>
+              <td>${this.userdata.max_rank}</td>
               <td>${this.userdata.global_rank}</td>
               <td>${this.userdata.country_rank}</td>
       `;
@@ -197,7 +201,7 @@ export default {
       }
 
       //   codeforces block
-      else if (this.friendlist[i]["platform"] == "codeforces") {
+      else if (this.friendlist[i]["platform"] == "codeforce") {
         console.log("inside the codeforces block");
             await axios.get('https://competeapi.vercel.app/user/codeforces/'+this.friendlist[i]["username"])
         .then((res) => {
@@ -227,11 +231,16 @@ export default {
       //    leetcode block
       else if (this.friendlist[i]["platform"] == "leetcode") {
         console.log("inside the leetcode block");
-            await axios.get("https://competitive-coding-api.herokuapp.com/api/leetcode/" +this.friendlist[i]["username"])
+            await axios.get("api/leetcode/user/" +this.friendlist[i]["username"])
         .then((res) => {
           // console.log(res.data);
-          this.userdata = res.data;
-          // console.log(this.userdata)
+          this.userdata = res.data['data'];
+                //  console.log(this.contestRanking=this.userdata['userContestRanking'])
+                this.toatal_solved=this.userdata['matchedUser']['submitStats']['acSubmissionNum'][0].count
+                this.easy_solved=this.userdata['matchedUser']['submitStats']['acSubmissionNum'][1].count
+                this.medium_solved=this.userdata['matchedUser']['submitStats']['acSubmissionNum'][2].count
+                this.hard_solved=this.userdata['matchedUser']['submitStats']['acSubmissionNum'][3].count  
+          
         })
         .catch((error) => {
           console.log(error);
@@ -243,12 +252,11 @@ export default {
         const box = document.createElement("tr");
         box.innerHTML = `
               <td>${this.friendlist[i]["username"]}</td>
-              <td>${this.userdata.ranking}</td>
-              <td>${this.userdata.total_problems_submitted}</td>
-              <td>${this.userdata.acceptance_rate}</td>
-              <td>${this.userdata.easy_problems_submitted}</td>
-              <td>${this.userdata.medium_problems_submitted}</td>
-              <td>${this.userdata.hard_questions_solved}</td>
+            
+              <td>${this.toatal_solved}</td>
+              <td>${this.easy_solved}</td>
+              <td>${this.medium_solved}</td>
+              <td>${this.hard_solved}</td>
       `;
         boxWrapper.appendChild(box);
       }

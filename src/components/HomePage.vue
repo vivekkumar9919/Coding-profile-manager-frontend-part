@@ -282,7 +282,7 @@ export default {
   },
   mounted() {
     axios
-      .get("https://competeapi.vercel.app/contests/upcoming/")
+      .get("api/contest/upcoming")
       .then((response) => {
         // console.log(response.data);
         this.contestdetails = response.data;

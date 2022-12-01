@@ -316,10 +316,10 @@
                 <p class="card-text">
                   Username :-{{ this.datafromAPI.codechef }}
                 </p>
-                <p class="card-text">Stars :-{{ codechefuser.stars }}</p>
-                <p class="card-text">Rating :-{{ codechefuser.rating }}</p>
+                <p class="card-text">Stars :-{{ codechefuser.rating }}</p>
+                <p class="card-text">Rating :-{{ codechefuser.rating_number }}</p>
                 <p class="card-text">
-                  Highest Rating :- {{ codechefuser.highest_rating }}
+                  Highest Rating :- {{ codechefuser.max_rank }}
                 </p>
                 <p class="card-text">
                   Global Rank :- {{ codechefuser.global_rank }}
@@ -368,22 +368,20 @@
                 <p class="card-text">
                   Username:-{{ this.profiledata.leetcode }}
                 </p>
-                <p class="card-text">Ranking:-{{ leetcodeuser.ranking }}</p>
+
                 <p class="card-text">
                   Total Problems Solved:-
-                  {{ leetcodeuser.total_problems_submitted }}
+                  {{ toatal_solved }}
+                </p>
+           
+                <p class="card-text">
+                  Easy Problems:- {{ easy_solved }}
                 </p>
                 <p class="card-text">
-                  Acceptance Rate:- {{ leetcodeuser.acceptance_rate }}
+                  Medium Problems:- {{ medium_solved }}
                 </p>
                 <p class="card-text">
-                  Easy Problems:- {{ leetcodeuser.easy_problems_submitted }}
-                </p>
-                <p class="card-text">
-                  Medium Problems:- {{ leetcodeuser.medium_problems_submitted }}
-                </p>
-                <p class="card-text">
-                  Hard Problems:- {{ leetcodeuser.hard_questions_solved }}
+                  Hard Problems:- {{ hard_solved }}
                 </p>
                 <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
               </div>
@@ -422,6 +420,12 @@ export default {
       codeforcesuser: "",
       leetcodeuser: "",
       datafromAPI: {},
+
+                  contestRanking:[],
+             toatal_solved:'',
+             easy_solved:'',
+             medium_solved:'',
+             hard_solved:'',
     };
   },
   async created() {
@@ -433,9 +437,8 @@ export default {
           this.username
       )
       .then((response) => {
-        // console.log(response.data);
         this.datafromAPI = response.data[0];
-        console.log(this.datafromAPI);
+        // console.log(this.datafromAPI);
         this.profiledata.name = this.datafromAPI.name;
         this.profiledata.codechef = this.datafromAPI.codechef;
         this.profiledata.codeforces = this.datafromAPI.codeforces;
@@ -462,7 +465,7 @@ export default {
       console.log("Sending the codechef request");
       await axios
         .get(
-          "https://competitive-coding-api.herokuapp.com/api/codechef/" +
+          "api/codechef/user/" +
             this.profiledata.codechef
         )
         .then((response) => {
@@ -499,12 +502,16 @@ export default {
       console.log("Sending the codechef request");
       await axios
         .get(
-          "https://competitive-coding-api.herokuapp.com/api/leetcode/" +
+          "api/leetcode/user/" +
             this.profiledata.leetcode
         )
         .then((response) => {
-          console.log(response.data);
-          this.leetcodeuser = response.data;
+          this.leetcodeuser = response.data['data'];
+          console.log(this.contestRanking=this.leetcodeuser['userContestRanking'])
+           this.toatal_solved=this.leetcodeuser['matchedUser']['submitStats']['acSubmissionNum'][0].count
+          this.easy_solved=this.leetcodeuser['matchedUser']['submitStats']['acSubmissionNum'][1].count
+          this.medium_solved=this.leetcodeuser['matchedUser']['submitStats']['acSubmissionNum'][2].count
+          this.hard_solved=this.leetcodeuser['matchedUser']['submitStats']['acSubmissionNum'][3].count
         })
         .catch((error) => {
           console.log(error);
@@ -512,6 +519,19 @@ export default {
         });
     }
   },
+
+  // before update 
+  beforeUpdate(){
+    console.log("before update")
+    this.profiledata.name = this.datafromAPI.name;
+  },
+
+  updated(){
+    console.log("After update")
+    this.profiledata.name = this.datafromAPI.name;
+  },
+
+  
   methods: {
     updateformfunc() {
       document.getElementById("formContID").style.visibility = "visible";
