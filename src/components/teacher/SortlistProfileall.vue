@@ -199,7 +199,7 @@ export default {
       let month = dt.getMonth();
       let year = dt.getFullYear();
       let todayDate = date + "/" + month + "/" + year;
-  
+       console.log(todayDate)
 
 
       for (let key in this.userlist) {

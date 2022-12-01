@@ -166,7 +166,7 @@ export default {
           DataByUser,
           customConfig
         )
-        .then((response) => {
+        .then(() => {
           // console.log(response.data);
           alert("Question added successfully");
           document.getElementById("formid").reset();
@@ -188,7 +188,7 @@ export default {
           `api/student/question/delete_questions/`+a,
           // customConfig
         )
-        .then((response) => {
+        .then(() => {
           // console.log(response.data);
           alert("Question deleted successfully");
           // location.reload();

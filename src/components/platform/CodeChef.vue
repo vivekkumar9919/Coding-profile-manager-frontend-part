@@ -76,7 +76,7 @@ export default {
                 // console.log(this.posts)
                 
             })
-            .catch((error)=>{
+            .catch(()=>{
             // console.log(error);
             this.errmsg='Error in fetching data'
 

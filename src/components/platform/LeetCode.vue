@@ -84,7 +84,7 @@ export default {
                 this.hard_solved=this.posts2['matchedUser']['submitStats']['acSubmissionNum'][3].count
                 
             })
-            .catch((error)=>{
+            .catch(()=>{
             // console.log(error);
             this.errmsg2='Error in fetching data'
 

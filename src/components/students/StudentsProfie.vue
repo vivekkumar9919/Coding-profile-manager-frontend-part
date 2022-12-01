@@ -512,7 +512,7 @@ export default {
           this.medium_solved=this.leetcodeuser['matchedUser']['submitStats']['acSubmissionNum'][2].count
           this.hard_solved=this.leetcodeuser['matchedUser']['submitStats']['acSubmissionNum'][3].count
         })
-        .catch((error) => {
+        .catch(() => {
           // console.log(error);
           this.errmsg2 = "Error in fetching data";
         });

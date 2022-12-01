@@ -149,7 +149,7 @@ export default {
           DataByUser,
           customConfig
         )
-        .then((response) => {
+        .then(() => {
 
        
           alert("Student added successfully");
@@ -220,7 +220,7 @@ export default {
           this.userdata = res.data;
           // console.log(this.userdata)
         })
-        .catch((error) => {
+        .catch(() => {
           // console.log(error);
           this.errmsg = "Error in fetching data";
         });

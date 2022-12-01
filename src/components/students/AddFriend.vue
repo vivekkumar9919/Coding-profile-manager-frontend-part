@@ -140,7 +140,7 @@ export default {
         )
         .then((response) => {
 
-          // console.log(response.data);
+          response.data
           alert("Friend added successfully");
           document.getElementById('formid').reset();
           // location.reload();
@@ -164,7 +164,7 @@ export default {
         // console.log(this.friendlist[0]["platform"]);
         // console.log(this.friendlist[0]["username"]);
       })
-      .catch((error) => {
+      .catch(() => {
         // console.log(error);
         this.errmsg = "Error in fetching data";
       });
@@ -181,7 +181,7 @@ export default {
             this.userdata = res.data;
             // console.log(this.userdata)
           })
-          .catch((error) => {
+          .catch(() => {
             // console.log(error);
             this.errmsg = "Error in fetching data";
           });
@@ -209,7 +209,7 @@ export default {
           this.userdata = res.data;
           // console.log(this.userdata)
         })
-        .catch((error) => {
+        .catch(() => {
           // console.log(error);
           this.errmsg = "Error in fetching data";
         });
@@ -242,7 +242,7 @@ export default {
                 this.hard_solved=this.userdata['matchedUser']['submitStats']['acSubmissionNum'][3].count  
           
         })
-        .catch((error) => {
+        .catch(() => {
           // console.log(error);
           this.errmsg = "Error in fetching data";
         });
