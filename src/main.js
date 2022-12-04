@@ -6,7 +6,7 @@ import axios from 'axios'
 
 
 // base url link
-axios.defaults.baseURL= 'https://codingprofilemanagerapi.onrender.com/'
+axios.defaults.baseURL= 'https://codingprofilemanager-api.onrender.com/'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter);
