@@ -286,34 +286,6 @@ export default {
 
 
 <style scoped>
-.topimgContainer3 {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  margin-bottom: 50px;
-}
-
-#topheading {
-  /* height: 130px; */
-  width: 500px;
-  /* border: 2px solid red; */
-  position: absolute;
-  left: 200px;
-  top: 200px;
-  padding: 20px;
-}
-
-#heading1 {
-  font-size: 40px;
-  font-family: cursive;
-  color: white;
-  /* background-color: rgb(2, 117, 216); */
-  width: fit-content;
-  padding-left: 5px;
-  padding-right: 5px;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
-}
 
 .takeinpCont {
   display: flex;
@@ -325,7 +297,6 @@ export default {
   /* border: 2px solid red; */
   height: 650px;
   width: 1530px;
-  /* border: 2px solid red; */
   background-image: url("../../assets/sortlist1.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -333,8 +304,6 @@ export default {
 
 .ContentBox {
   padding-top: 30px;
-  /* border: 2px solid red; */
-  /* background-image: url('../assets/sortlist2.png'); */
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -359,8 +328,6 @@ export default {
 }
 
 #mytable {
-  /* margin-left: 100px; */
- 
   margin-bottom: 100px;
 }
 
@@ -380,9 +347,7 @@ export default {
   font-size: 20px;
   color: black;
 }
-/* #mytable {
-  visibility: hidden;
-} */
+
 
 #mytable table,
 #mytable th,
@@ -391,7 +356,7 @@ export default {
   border: 1px solid white;
   text-align: center;
   color: black;
-  /* visibility: hidden; */
+
 }
 
 #mytable th,

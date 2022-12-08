@@ -73,6 +73,7 @@
                 id="InputPassword1"
                 v-model="teacherdata.password"
               />
+               <small style="color:red;">Note:- Only number of lenght 8 is allowed</small>
             </div>
 
             <div class="mb-3">

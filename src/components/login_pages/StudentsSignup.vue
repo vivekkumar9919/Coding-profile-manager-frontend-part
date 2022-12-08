@@ -64,6 +64,7 @@
                 id="exampleInputPassword1"
                 v-model="studentdata.password"
               />
+              <small style="color:red;">Note:- Only number of lenght 8 is allowed</small>
             </div>
 
             <div class="mb-3">
@@ -124,7 +125,7 @@ export default {
   },
   methods: {
 
-
+ 
 
     async datapost() {
      
@@ -134,7 +135,7 @@ export default {
        const pass2=this.studentdata.Cpassword;
         if(pass1==pass2 && passlen>8) {
       
-     
+   
       const UserRegisterData = await JSON.stringify(this.studentdata);
       console.log(`json data ${UserRegisterData}`);
       let customConfig = {
@@ -178,7 +179,7 @@ export default {
 
         }
         else{
-              this.errmsg="Password not Matched or Pass lenght is less than 8 character"
+              this.errmsg="Password not Matched or Password lenght is less than 8 character"
         }
         
 

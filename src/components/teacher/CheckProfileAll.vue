@@ -87,7 +87,9 @@ export default {
 </script>
 
 
-<style scoped>
+
+
+<style>
 .topimgContainer,
 .PlatformNameCont {
   display: flex;
@@ -125,12 +127,10 @@ export default {
   letter-spacing: 1px;
   margin-bottom: 20px;
 }
-/* .ContentBox {
-  border: 2px solid red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
+</style>
+
+
+<style scoped>
 button{
   border: 0px;
   background-color: white;
@@ -145,3 +145,5 @@ button:focus .card-body{
 }
 
 </style>
+
+
