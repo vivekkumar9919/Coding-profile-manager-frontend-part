@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="topheading">My Friends Details</div>
+    <div id="topheadingText">My Friends Details</div>
     <div class="freindinputCont">
       <form class="row g-3 freindinputbox" @submit.prevent="addfriendfunc" id="formid">
         <div id="selectinput">
@@ -266,7 +266,7 @@ export default {
 </script>
 
 <style scoped>
-#topheading {
+#topheadingText {
     margin-top: 90px;
   text-align: center;
   font-size: 28px;

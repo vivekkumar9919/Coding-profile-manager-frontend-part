@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="topheading">My Question list</div>
+    <div id="topheadingText">My Question list</div>
 
     <div class="questionsolCont">
       <form
@@ -216,23 +216,7 @@ export default {
         this.errmsg = "Error in fetching data";
       });
 
-    // for (let i = 0; i < this.listfromserver.length; i++) {
-    //   console.log("inside the loop");
-    //   const addques = document.getElementById("Questionrowadd");
 
-    //   const box = document.createElement("tr");
-    //   box.innerHTML = `
-    //             <td style="word-wrap: break-word;min-width: 160px;max-width: 210px;">${this.listfromserver[i]["question_Description"]}</td>
-    //           <td class="tdclass">${this.listfromserver[i]["platform"]}</td>
-    //           <td class="tdclass">${this.listfromserver[i]["note"]}</td>
-    //           <td class="tdclass">${this.listfromserver[i]["topic"]}</td>
-    //           <td class="tdclass"> <a href="${this.listfromserver[i]["question_link"]}" target="_blank">Link</a></td>
-    //           <td class="tdclass">${this.listfromserver[i]["need_pratice"]}</td>
-    //           <td class="tdclass"> <a @click="this.deleteQues()">delete</a></td>
-    //   `;
-      
-    //   addques.appendChild(box);
-    // }
   },
 };
 </script>
@@ -240,7 +224,7 @@ export default {
 
 
 <style scoped>
-#topheading {
+#topheadingText {
   margin-top: 90px;
   text-align: center;
   font-size: 28px;
