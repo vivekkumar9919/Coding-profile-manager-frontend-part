@@ -88,7 +88,7 @@
           <div class="studTextBOx" id="studImgID1">
             <div class="card" style="width: 25rem">
               <div class="card-body">
-                <h5 class="card-title">Services for Student</h5>
+                <h5 class="card-title">Services for Students</h5>
                 <ul>
                   <li>
                     <p class="card-text">
@@ -119,7 +119,7 @@
           <div class="teachTextBOx" id="teachImgID1">
             <div class="card" style="width: 25rem">
               <div class="card-body">
-                <h5 class="card-title">Services for Teacher</h5>
+                <h5 class="card-title">Services for Teachers</h5>
                 <ul>
                   <li>
                     <p class="card-text">

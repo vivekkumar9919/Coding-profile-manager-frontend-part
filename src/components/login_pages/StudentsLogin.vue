@@ -53,7 +53,9 @@
               >
             </p> -->
             <div class="d-grid">
-              <button class="btn btn-primary" >Login</button>
+              <button class="btn btn-primary" v-if="loding" >Login</button>
+              <button class="btn btn-primary" v-else ><SpinnerComp></SpinnerComp></button>
+              
             </div>
           </form>
           <div class="mt-3">
@@ -74,11 +76,16 @@
 
 <script>
 import axios from "axios";
+import SpinnerComp from './SpinnerComp.vue'
 export default {
   name: "StudentsLogin",
+  components:{
+    SpinnerComp
+    },
   data() {
     return {
       logindetails: {},
+      loding:true,
     };
   },
   methods: {
@@ -91,7 +98,7 @@ export default {
           "Content-Type": "application/json",
         },
       };
-
+        this.loding=false;
       await axios
         .get(
           `api/login/` + this.logindetails.email,
@@ -108,12 +115,14 @@ export default {
             }
             localStorage.setItem("student_flag", true);
             localStorage.setItem("email1",this.logindetails.email)
+            this.loding=true;
             this.$router.push("/student/profile");
           } else {
             alert("  password is wrong");
           }
         }).catch((err)=>{
           console.log(err);
+          this.loding=true;
            alert("Email does not exit");
         })
     },

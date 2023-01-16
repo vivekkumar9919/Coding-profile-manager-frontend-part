@@ -64,7 +64,7 @@
                 id="exampleInputPassword1"
                 v-model="studentdata.password"
               />
-              <small style="color:red;">Note:- Only number of lenght 8 is allowed</small>
+              <small style="color:red;">Note:- Only number of lenght > 7 is allowed</small>
             </div>
 
             <div class="mb-3">
@@ -94,7 +94,8 @@
             </div>
 
             <div class="d-grid">
-              <button class="btn btn-primary" type="submit">SignUp</button>
+              <button class="btn btn-primary" type="submit" v-if="loding">SignUp</button>
+              <button class="btn btn-primary" type="submit" v-else><SpinnerComp></SpinnerComp></button>
             </div>
           </form>
           <div class="mt-3">
@@ -114,13 +115,18 @@
 
 <script>
 import axios from "axios";
+import SpinnerComp from './SpinnerComp.vue'
 export default {
   name: "StudentsRegister",
+  components:{
+    SpinnerComp,
+  },
   data() {
     return {
       studentdata: {},
       errmsg:'',
       alreadyexist:'',
+      loding:true,
     };
   },
   methods: {
@@ -133,7 +139,7 @@ export default {
        const passlen =this.studentdata.password.length;
        const pass1=this.studentdata.password;
        const pass2=this.studentdata.Cpassword;
-        if(pass1==pass2 && passlen>8) {
+        if(pass1==pass2 && passlen>=8) {
       
    
       const UserRegisterData = await JSON.stringify(this.studentdata);
@@ -145,6 +151,7 @@ export default {
       };
   
   // posting data to logindata1 (login data for student)
+  this.loding=false;
       await axios
         .post(
           `api/register`,
@@ -154,6 +161,7 @@ export default {
         .then(async() => {
           
         // posting data for the student profile database
+        this.loding=true;
         await axios
         .post(
           `api/student/profile/make_profile`,
@@ -165,14 +173,18 @@ export default {
           customConfig
         )
         .then((response) => {
+          this.loding=true;
+          alert("SignUp Successfully");
           console.log(response.data);
         })
         .catch((err) => {
+          this.loding=true;
           console.log(`nhi hua bhai ye rha errr ${err}`);
         });
 
         })
         .catch(() => {
+          this.loding=true;
            this.alreadyexist="Mail already Exist! Please login"
         });
           

@@ -73,7 +73,7 @@
                 id="InputPassword1"
                 v-model="teacherdata.password"
               />
-               <small style="color:red;">Note:- Only number of lenght 8 is allowed</small>
+               <small style="color:red;">Note:- Only number of lenght > 7 is allowed</small>
             </div>
 
             <div class="mb-3">
@@ -101,7 +101,8 @@
             </div>
 
             <div class="d-grid">
-              <button class="btn btn-primary" >SignUp</button>
+              <button class="btn btn-primary" v-if="loding">SignUp</button>
+              <button class="btn btn-primary" v-else><SpinnerComp></SpinnerComp></button>
             </div>
           </form>
           <div class="mt-3">
@@ -125,13 +126,18 @@
 
 <script>
 import axios from 'axios'
+import SpinnerComp from './SpinnerComp.vue'
 export default {
     name:'TeacherRegister',
+    components:{
+      SpinnerComp,
+    },
     data(){
       return{
         teacherdata:{},
         errmsg:'',
         alreadyexist:'',
+        loding:true,
       }
     },
   methods: {
@@ -139,7 +145,7 @@ export default {
         const passlen =this.teacherdata.password.length;
        const pass1=this.teacherdata.password;
        const pass2=this.teacherdata.Cpassword;
-       if(pass1==pass2 && passlen>8){
+       if(pass1==pass2 && passlen>=8){
 
       const UserRegisterData = await JSON.stringify(this.teacherdata);
       console.log(`json data ${UserRegisterData}`);
@@ -148,19 +154,24 @@ export default {
           "Content-Type": "application/json",
         },
       };
-
+       
+       this.loding=false;
       await axios.post(`api/teacher_login/register`, UserRegisterData,customConfig)
         .then((response) => {
+          this.loding=true;
           console.log(response.data);
+          alert("SignUp Successfully");
             localStorage.setItem("teacher_flag", true);
             localStorage.setItem("email2",this.teacherdata.email)
             this.$router.push("teacher");  
         })
         .catch(() => {
+          this.loding=true;
        this.alreadyexist="Mail already Exist! Please login"
         });
        }
        else{
+        this.loding=true;
         this.errmsg="Password not Matched or Pass lenght is less than 8 character"
        }
 
