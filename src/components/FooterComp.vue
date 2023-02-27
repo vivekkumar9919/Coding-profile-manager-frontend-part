@@ -5,7 +5,7 @@
            <div id="name">Coding Profile Manager </div>
            <center><hr style="width:40%; color :white; height:2px; "></center>
            <div id="copy">
-            Developed By Vinayak Sharma &COPY; 2022 All Rights Reserved
+            Developed By Vivek Kumar &COPY; 2023 All Rights Reserved
            </div>
        </div>
     </div>
